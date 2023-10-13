@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { Container } from 'semantic-ui-react';
-import { HomePageNavBar } from './HomePageNavBar';
+import { HomePageHeaderContainer } from './HomePageHeaderContainer';
 import { HomePageBioContainer } from './HomePageBioContainer';
 import { HomePageProjectsContainer } from './HomePageProjectsContainer';
 import { HomePageWorksInProgressContainer } from './HomePageWorksInProgressContainer';
@@ -8,7 +8,7 @@ import { HomePageWorksInProgressContainer } from './HomePageWorksInProgressConta
 export const HomePage = (): JSX.Element => {
   return (
     <HomePageContainer>
-      <HomePageNavBar />
+      <HomePageHeaderContainer />
       <HomePageBioContainer />
       <HomePageProjectsContainer />
       <HomePageWorksInProgressContainer />
