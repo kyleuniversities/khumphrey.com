@@ -17,5 +17,7 @@ export const HomePage = (): JSX.Element => {
 };
 
 const HomePageContainer = (props: { children: ReactNode }): JSX.Element => {
-  return <Container>{props.children}</Container>;
+  return (
+    <Container style={{ textAlign: 'center' }}>{props.children}</Container>
+  );
 };
