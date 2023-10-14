@@ -11,13 +11,14 @@ export const HomePageBioContainer = () => {
 };
 
 const HomePageBioWelcomeContainer = () => {
+  const welcome = require('../../resources/welcome.png');
   return (
     <HomePageBioTransitionContainer
       height="480px"
       animation="slide left"
       timeout={500}
     >
-      <Image centered src="./resources/welcome.png" />
+      <Image centered src={welcome} />
     </HomePageBioTransitionContainer>
   );
 };
