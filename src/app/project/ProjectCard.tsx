@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { Card, Container, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 

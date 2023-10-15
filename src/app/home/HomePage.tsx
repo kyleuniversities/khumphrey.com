@@ -33,7 +33,7 @@ export const HomePageTransitionContainer = (props: {
     setTimeout(() => {
       setVisible(true);
     }, props.timeout);
-  }, []);
+  });
   return (
     <Container style={{ height: props.height }}>
       <Transition visible={visible} animation={props.animation} duration={500}>
