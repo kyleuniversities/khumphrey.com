@@ -1,5 +1,6 @@
 import { Container, Image } from 'semantic-ui-react';
 import { HomePageTransitionContainer } from './HomePage';
+import { MultiLineBreak } from '../../common/util/js/line';
 
 export const HomePageBioContainer = () => {
   return (
@@ -26,7 +27,7 @@ const HomePageBioWelcomeContainer = () => {
 const HomePageBioAboutContainer = () => {
   return (
     <HomePageTransitionContainer
-      height="300px"
+      height="auto"
       animation="slide left"
       timeout={2000}
     >
@@ -51,6 +52,7 @@ const HomePageBioAboutContainer = () => {
               and Python.
             </span>
           </p>
+          <MultiLineBreak lines={10} />
         </div>
       </Container>
     </HomePageTransitionContainer>
