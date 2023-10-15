@@ -1,10 +1,11 @@
+import { MultiLineBreak } from '../../common/util/js/line';
 import { ProjectCard } from '../project/ProjectCard';
 import { HomePageTransitionContainer } from './HomePage';
 
 export const HomePageProjectsContainer = () => {
   return (
     <HomePageTransitionContainer
-      height="480px"
+      height="auto"
       animation="slide left"
       timeout={3500}
     >
@@ -20,6 +21,7 @@ export const HomePageProjectsContainer = () => {
         </span>
         <ProjectCard name="lambda" />
         <ProjectCard name="kyleuniversities.com" />
+        <MultiLineBreak lines={3} />
       </div>
     </HomePageTransitionContainer>
   );
