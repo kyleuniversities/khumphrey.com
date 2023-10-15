@@ -1,5 +1,5 @@
-import { ReactNode, useEffect, useState } from 'react';
-import { Container, Image, Transition } from 'semantic-ui-react';
+import { Container, Image } from 'semantic-ui-react';
+import { HomePageTransitionContainer } from './HomePage';
 
 export const HomePageBioContainer = () => {
   return (
@@ -11,23 +11,24 @@ export const HomePageBioContainer = () => {
 };
 
 const HomePageBioWelcomeContainer = () => {
+  const welcome = require('../../resources/welcome.png');
   return (
-    <HomePageBioTransitionContainer
+    <HomePageTransitionContainer
       height="480px"
       animation="slide left"
       timeout={500}
     >
-      <Image centered src="./resources/welcome.png" />
-    </HomePageBioTransitionContainer>
+      <Image centered src={welcome} />
+    </HomePageTransitionContainer>
   );
 };
 
 const HomePageBioAboutContainer = () => {
   return (
-    <HomePageBioTransitionContainer
+    <HomePageTransitionContainer
       height="300px"
       animation="slide left"
-      timeout={1500}
+      timeout={2000}
     >
       <Container>
         <div
@@ -52,27 +53,6 @@ const HomePageBioAboutContainer = () => {
           </p>
         </div>
       </Container>
-    </HomePageBioTransitionContainer>
-  );
-};
-
-const HomePageBioTransitionContainer = (props: {
-  height: string;
-  animation: string;
-  timeout: number;
-  children: ReactNode;
-}) => {
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    setTimeout(() => {
-      setVisible(true);
-    }, props.timeout);
-  }, []);
-  return (
-    <Container style={{ height: props.height }}>
-      <Transition visible={visible} animation={props.animation} duration={500}>
-        {props.children}
-      </Transition>
-    </Container>
+    </HomePageTransitionContainer>
   );
 };
