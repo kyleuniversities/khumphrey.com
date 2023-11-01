@@ -1,0 +1,11 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/kyle/kyleuniversities
+permissions:
+  - object: /home/kyle
+    owner: kyle
+    type:
+      - directory
+      - file

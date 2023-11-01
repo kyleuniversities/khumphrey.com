@@ -23,3 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 /saves
+/notes
+/src/raw-resources
