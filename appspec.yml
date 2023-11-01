@@ -9,7 +9,3 @@ permissions:
     type:
       - directory
       - file
-hooks:
-  ApplicationStart:
-    - location: scripts/reload-pm2.sh
-      timeout: 300
