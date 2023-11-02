@@ -1,7 +1,17 @@
-import { Menu, Icon } from 'semantic-ui-react';
+import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
+import { Container, Icon, Menu } from 'semantic-ui-react';
 
-export const HomePageHeaderContainer = (): JSX.Element => {
+export const SitePage = (props: { children: ReactNode }): JSX.Element => {
+  return (
+    <Container style={{ textAlign: 'center' }}>
+      <SiteHeaderContainer />
+      {props.children}
+    </Container>
+  );
+};
+
+const SiteHeaderContainer = (): JSX.Element => {
   return (
     <Menu secondary>
       <Menu.Item as={Link} to="/">
