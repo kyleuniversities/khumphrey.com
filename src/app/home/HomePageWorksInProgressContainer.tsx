@@ -21,6 +21,7 @@ export const HomePageWorksInProgressContainer = () => {
         </span>
         <MultiLineBreak lines={1} />
         <ProjectCard name="full-stack-certificate" />
+        <MultiLineBreak lines={5} />
       </div>
     </HomePageTransitionContainer>
   );

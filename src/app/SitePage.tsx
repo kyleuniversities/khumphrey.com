@@ -1,12 +1,21 @@
 import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Icon, Menu } from 'semantic-ui-react';
+import {
+  Container,
+  Grid,
+  Header,
+  Icon,
+  List,
+  Menu,
+  Segment,
+} from 'semantic-ui-react';
 
 export const SitePage = (props: { children: ReactNode }): JSX.Element => {
   return (
-    <Container style={{ textAlign: 'center' }}>
+    <Container fluid style={{ textAlign: 'center' }}>
       <SiteHeaderContainer />
       {props.children}
+      <SiteFooter />
     </Container>
   );
 };
@@ -29,5 +38,71 @@ const SiteHeaderContainer = (): JSX.Element => {
         </Link>
       </Menu.Item>
     </Menu>
+  );
+};
+
+export const SiteFooter = () => {
+  return (
+    <SiteFooterSegment>
+      <SiteFooterGridColumn headerContent="About">
+        <List.Item as={Link} to="/about-me">
+          About Me
+        </List.Item>
+        <List.Item as={Link} to="/personal-statement">
+          Personal Statement
+        </List.Item>
+        <List.Item as={Link} to="/resume">
+          Resume
+        </List.Item>
+      </SiteFooterGridColumn>
+      <SiteFooterGridColumn headerContent="Skills">
+        <List.Item as={Link} to="/technologies">
+          Technologies I Have Experience In
+        </List.Item>
+        <List.Item as={Link} to="/achievements">
+          Achievements
+        </List.Item>
+      </SiteFooterGridColumn>
+      <SiteFooterGridColumn headerContent="Projects">
+        <List.Item as={Link} to="/projects">
+          Projects
+        </List.Item>
+        <List.Item as={Link} to="/works-in-progress">
+          Works in Progress
+        </List.Item>
+      </SiteFooterGridColumn>
+    </SiteFooterSegment>
+  );
+};
+
+const SiteFooterSegment = (props: { children: ReactNode }) => {
+  const style = {
+    paddingTop: '50px',
+    paddingBottom: '50px',
+    minHeight: '15vh',
+    textAlign: 'left',
+  };
+  return (
+    <Segment inverted vertical style={style}>
+      <Container>
+        <Grid divided inverted stackable>
+          <Grid.Row>{props.children}</Grid.Row>
+        </Grid>
+      </Container>
+    </Segment>
+  );
+};
+
+const SiteFooterGridColumn = (props: {
+  headerContent: string;
+  children: ReactNode;
+}) => {
+  return (
+    <Grid.Column width={4}>
+      <Header inverted as="h4" content={props.headerContent} />
+      <List link inverted>
+        {props.children}
+      </List>
+    </Grid.Column>
   );
 };
