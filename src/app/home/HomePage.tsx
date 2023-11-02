@@ -1,18 +1,17 @@
 import { ReactNode, useEffect, useState } from 'react';
 import { Container, Transition } from 'semantic-ui-react';
-import { HomePageHeaderContainer } from './HomePageHeaderContainer';
+import { SitePage } from '../SitePage';
 import { HomePageBioContainer } from './HomePageBioContainer';
 import { HomePageProjectsContainer } from './HomePageProjectsContainer';
 import { HomePageWorksInProgressContainer } from './HomePageWorksInProgressContainer';
 
 export const HomePage = (): JSX.Element => {
   return (
-    <HomePageContainer>
-      <HomePageHeaderContainer />
+    <SitePage>
       <HomePageBioContainer />
       <HomePageProjectsContainer />
       <HomePageWorksInProgressContainer />
-    </HomePageContainer>
+    </SitePage>
   );
 };
 

@@ -12,7 +12,7 @@ export const HomePageBioContainer = () => {
 };
 
 const HomePageBioWelcomeContainer = () => {
-  const welcome = require('../../resources/welcome.png');
+  const welcome = window.location.origin + '/resources/welcome.png';
   return (
     <HomePageTransitionContainer
       height="480px"
