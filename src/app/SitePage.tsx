@@ -62,29 +62,29 @@ const SiteFooter = (): JSX.Element => {
   return (
     <SiteFooterSegment>
       <SiteFooterGridColumn headerContent="About">
-        <List.Item as={Link} to="/about-me">
+        <List.Item as={Link} to="/sections/about-me">
           About Me
         </List.Item>
-        <List.Item as={Link} to="/personal-statement">
+        <List.Item as={Link} to="/sections/personal-statement">
           Personal Statement
         </List.Item>
-        <List.Item as={Link} to="/resume">
+        <List.Item as={Link} to="/sections/resume">
           Resume
         </List.Item>
       </SiteFooterGridColumn>
       <SiteFooterGridColumn headerContent="Skills">
-        <List.Item as={Link} to="/technologies">
+        <List.Item as={Link} to="/sections/technologies">
           Technologies I Have Experience In
         </List.Item>
-        <List.Item as={Link} to="/achievements">
-          Achievements
+        <List.Item as={Link} to="/sections/accomplishments">
+          Accomplishments
         </List.Item>
       </SiteFooterGridColumn>
       <SiteFooterGridColumn headerContent="Projects">
-        <List.Item as={Link} to="/projects">
+        <List.Item as={Link} to="/sections/project-list">
           Projects
         </List.Item>
-        <List.Item as={Link} to="/works-in-progress">
+        <List.Item as={Link} to="/sections/works-in-progress">
           Works in Progress
         </List.Item>
       </SiteFooterGridColumn>
