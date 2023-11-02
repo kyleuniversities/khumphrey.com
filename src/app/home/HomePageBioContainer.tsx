@@ -1,5 +1,9 @@
 import { Container, Image } from 'semantic-ui-react';
-import { AnimationSwitch, HomePageTransitionContainer } from './HomePage';
+import {
+  AnimationSwitch,
+  HomePageTransitionContainer,
+  STATIC_ANIMATION,
+} from './HomePage';
 import { MultiLineBreak } from '../../common/util/js/line';
 
 export const HomePageBioContainer = (props: AnimationSwitch): JSX.Element => {
@@ -16,7 +20,7 @@ const HomePageBioWelcomeContainer = (props: AnimationSwitch): JSX.Element => {
   return (
     <HomePageTransitionContainer
       height="480px"
-      animation="slide left"
+      animation={props.isAnimating ? 'slide left' : STATIC_ANIMATION}
       isAnimating={props.isAnimating}
       timeout={500}
     >

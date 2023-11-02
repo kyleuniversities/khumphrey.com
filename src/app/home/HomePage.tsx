@@ -4,25 +4,29 @@ import { SitePage } from '../SitePage';
 import { HomePageBioContainer } from './HomePageBioContainer';
 import { HomePageProjectsContainer } from './HomePageProjectsContainer';
 import { HomePageWorksInProgressContainer } from './HomePageWorksInProgressContainer';
+import { HomePageReplayContainer } from './HomePageReplayContainer';
 
 export const DynamicHomePage = (): JSX.Element => {
-  return <HomePage isAnimating={true} />;
+  return <HomePage isDynamic={true} />;
 };
 
 export const StaticHomePage = (): JSX.Element => {
-  return <HomePage isAnimating={false} />;
+  return <HomePage isDynamic={false} />;
 };
 
 export type AnimationSwitch = {
   isAnimating: boolean;
 };
 
-const HomePage = (props: AnimationSwitch): JSX.Element => {
+export const STATIC_ANIMATION = 'pulse';
+
+const HomePage = (props: { isDynamic: boolean }): JSX.Element => {
   return (
     <SitePage>
-      <HomePageBioContainer isAnimating={props.isAnimating} />
-      <HomePageProjectsContainer isAnimating={props.isAnimating} />
-      <HomePageWorksInProgressContainer isAnimating={props.isAnimating} />
+      <HomePageBioContainer isAnimating={props.isDynamic} />
+      <HomePageReplayContainer isDynamic={props.isDynamic} />
+      <HomePageProjectsContainer isAnimating={props.isDynamic} />
+      <HomePageWorksInProgressContainer isAnimating={props.isDynamic} />
     </SitePage>
   );
 };
@@ -43,7 +47,9 @@ export const HomePageTransitionContainer = (props: {
   const [visible, setVisible] = useState(!props.isAnimating);
   useEffect(() => {
     setTimeout(() => {
-      setVisible(true);
+      if (props.isAnimating || props.animation === STATIC_ANIMATION) {
+        setVisible(props.isAnimating);
+      }
     }, props.timeout);
   });
   return (
