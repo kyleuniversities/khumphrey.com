@@ -35,13 +35,15 @@ export const ProjectCard = (props: { name: string }): JSX.Element => {
         paddingBottom: padding,
       }}
     >
-      <span style={{ fontSize: '30px', fontWeight: 'bold' }}>
-        <p>{data.title}</p>
-      </span>
-      <br />
-      <Container>
-        <Image centered src={image} />
-      </Container>
+      <Link to={`/${props.name}`}>
+        <span style={{ color: 'black', fontSize: '30px', fontWeight: 'bold' }}>
+          <p>{data.title}</p>
+        </span>
+        <br />
+        <Container>
+          <Image centered src={image} />
+        </Container>
+      </Link>
       <br />
       <br />
       <span style={{ fontSize: '20px' }}>
