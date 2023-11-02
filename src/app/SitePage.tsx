@@ -65,11 +65,11 @@ const SiteFooter = (): JSX.Element => {
         <List.Item as={Link} to="/sections/about-me">
           About Me
         </List.Item>
-        <List.Item as={Link} to="/sections/personal-statement">
-          Personal Statement
-        </List.Item>
-        <List.Item as={Link} to="/sections/resume">
+        <List.Item as={Link} to="/pdfs/resume">
           Resume
+        </List.Item>
+        <List.Item as={Link} to="/pdfs/curriculum-vitae">
+          Curriculum Vitae
         </List.Item>
       </SiteFooterGridColumn>
       <SiteFooterGridColumn headerContent="Skills">
