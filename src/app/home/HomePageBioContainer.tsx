@@ -1,22 +1,23 @@
 import { Container, Image } from 'semantic-ui-react';
-import { HomePageTransitionContainer } from './HomePage';
+import { AnimationSwitch, HomePageTransitionContainer } from './HomePage';
 import { MultiLineBreak } from '../../common/util/js/line';
 
-export const HomePageBioContainer = () => {
+export const HomePageBioContainer = (props: AnimationSwitch): JSX.Element => {
   return (
     <Container>
-      <HomePageBioWelcomeContainer />
-      <HomePageBioAboutContainer />
+      <HomePageBioWelcomeContainer isAnimating={props.isAnimating} />
+      <HomePageBioAboutContainer isAnimating={props.isAnimating} />
     </Container>
   );
 };
 
-const HomePageBioWelcomeContainer = () => {
+const HomePageBioWelcomeContainer = (props: AnimationSwitch): JSX.Element => {
   const welcome = window.location.origin + '/resources/welcome.png';
   return (
     <HomePageTransitionContainer
       height="480px"
       animation="slide left"
+      isAnimating={props.isAnimating}
       timeout={500}
     >
       <Image centered src={welcome} />
@@ -24,11 +25,12 @@ const HomePageBioWelcomeContainer = () => {
   );
 };
 
-const HomePageBioAboutContainer = () => {
+const HomePageBioAboutContainer = (props: AnimationSwitch): JSX.Element => {
   return (
     <HomePageTransitionContainer
       height="auto"
       animation="slide left"
+      isAnimating={props.isAnimating}
       timeout={2000}
     >
       <Container>

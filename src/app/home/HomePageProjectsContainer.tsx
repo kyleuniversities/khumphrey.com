@@ -1,12 +1,15 @@
 import { MultiLineBreak } from '../../common/util/js/line';
 import { ProjectCard } from '../project/ProjectCard';
-import { HomePageTransitionContainer } from './HomePage';
+import { AnimationSwitch, HomePageTransitionContainer } from './HomePage';
 
-export const HomePageProjectsContainer = () => {
+export const HomePageProjectsContainer = (
+  props: AnimationSwitch
+): JSX.Element => {
   return (
     <HomePageTransitionContainer
       height="auto"
       animation="slide left"
+      isAnimating={props.isAnimating}
       timeout={3500}
     >
       <div

@@ -32,10 +32,10 @@ const SiteHeaderContainer = (): JSX.Element => {
 const SiteHeaderSuperMenu = (): JSX.Element => {
   return (
     <Menu secondary>
-      <Menu.Item as={Link} to="/">
+      <Menu.Item as={Link} to="/home">
         <Icon name="home" size="big" />
       </Menu.Item>
-      <Menu.Item as={Link} to="/">
+      <Menu.Item as={Link} to="/home">
         <h1>Kyle Universities</h1>
       </Menu.Item>
       <Menu.Item position="right">
