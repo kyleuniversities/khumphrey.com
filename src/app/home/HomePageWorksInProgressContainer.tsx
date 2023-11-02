@@ -19,7 +19,7 @@ export const HomePageWorksInProgressContainer = () => {
         <span style={{ fontSize: '34px', fontWeight: 'bold' }}>
           <p>Works in Progress</p>
         </span>
-        <MultiLineBreak lines={3} />
+        <MultiLineBreak lines={1} />
         <ProjectCard name="full-stack-certificate" />
       </div>
     </HomePageTransitionContainer>

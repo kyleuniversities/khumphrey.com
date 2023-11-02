@@ -21,7 +21,7 @@ export const HomePageProjectsContainer = () => {
         </span>
         <ProjectCard name="lambda" />
         <ProjectCard name="kyleuniversities.com" />
-        <MultiLineBreak lines={3} />
+        <MultiLineBreak lines={5} />
       </div>
     </HomePageTransitionContainer>
   );
