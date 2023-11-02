@@ -22,6 +22,14 @@ export const SitePage = (props: { children: ReactNode }): JSX.Element => {
 
 const SiteHeaderContainer = (): JSX.Element => {
   return (
+    <Container>
+      <SiteHeaderMenu />
+    </Container>
+  );
+};
+
+const SiteHeaderMenu = (): JSX.Element => {
+  return (
     <Menu secondary>
       <Menu.Item as={Link} to="/">
         <Icon name="home" size="big" />
@@ -41,7 +49,7 @@ const SiteHeaderContainer = (): JSX.Element => {
   );
 };
 
-export const SiteFooter = () => {
+const SiteFooter = (): JSX.Element => {
   return (
     <SiteFooterSegment>
       <SiteFooterGridColumn headerContent="About">
@@ -75,7 +83,7 @@ export const SiteFooter = () => {
   );
 };
 
-const SiteFooterSegment = (props: { children: ReactNode }) => {
+const SiteFooterSegment = (props: { children: ReactNode }): JSX.Element => {
   const style = {
     paddingTop: '50px',
     paddingBottom: '50px',
@@ -96,7 +104,7 @@ const SiteFooterSegment = (props: { children: ReactNode }) => {
 const SiteFooterGridColumn = (props: {
   headerContent: string;
   children: ReactNode;
-}) => {
+}): JSX.Element => {
   return (
     <Grid.Column width={4}>
       <Header inverted as="h4" content={props.headerContent} />
