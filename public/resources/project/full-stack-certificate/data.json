@@ -1,6 +1,9 @@
 {
     "title": "IBM Full Stack Developer Certificate",
-    "description": "A set of courses designed to cultivated skills and knowledge in cloud infrastructure, frontend development, and backend development.",
+    "description": [
+        "A set of courses designed to cultivated skills and knowledge in ",
+        "cloud infrastructure, frontend development, and backend development."
+    ],
     "currentState": "Completed 10 out of 12 courses.",
     "urls": [
         "https://www.coursera.org/professional-certificates/ibm-full-stack-cloud-developer"

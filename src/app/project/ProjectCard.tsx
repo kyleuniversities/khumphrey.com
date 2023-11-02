@@ -1,9 +1,28 @@
 import { Card, Container, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 export const ProjectCard = (props: { name: string }): JSX.Element => {
-  const data = require(`../../resources/project/${props.name}/data.json`);
-  const image = require(`../../resources/project/${props.name}/image.png`);
+  const [data, setData] = useState({
+    title: 'Loading...',
+    description: 'Loading...',
+  });
+  const [introText, setIntroText] = useState('');
+  const dataUrl =
+    window.location.origin + `/resources/project/${props.name}/data.json`;
+  const image =
+    window.location.origin + `/resources/project/${props.name}/image.png`;
+  const introUrl =
+    window.location.origin + `/resources/project/${props.name}/intro.md`;
+  useEffect(() => {
+    fetch(dataUrl)
+      .then((res) => res.json())
+      .then((res) => setData(res));
+    fetch(introUrl)
+      .then((res) => res.text())
+      .then((text) => setIntroText(text));
+  });
   const padding = '40px';
   return (
     <Card
@@ -26,12 +45,7 @@ export const ProjectCard = (props: { name: string }): JSX.Element => {
       <br />
       <br />
       <span style={{ fontSize: '20px' }}>
-        <p>{data.description}</p>
-        {data.github.map((github: string) => (
-          <p>
-            <Link to={github}>{github}</Link>
-          </p>
-        ))}
+        <ReactMarkdown children={introText} />
       </span>
     </Card>
   );

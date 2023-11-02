@@ -1,5 +1,5 @@
 import { MultiLineBreak } from '../../common/util/js/line';
-import { WorkInProgressCard } from '../project/WorkInProgressCard';
+import { ProjectCard } from '../project/ProjectCard';
 import { HomePageTransitionContainer } from './HomePage';
 
 export const HomePageWorksInProgressContainer = () => {
@@ -19,8 +19,8 @@ export const HomePageWorksInProgressContainer = () => {
         <span style={{ fontSize: '34px', fontWeight: 'bold' }}>
           <p>Works in Progress</p>
         </span>
-        <WorkInProgressCard name="full-stack-certificate" />
         <MultiLineBreak lines={3} />
+        <ProjectCard name="full-stack-certificate" />
       </div>
     </HomePageTransitionContainer>
   );
