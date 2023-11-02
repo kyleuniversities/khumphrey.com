@@ -47,7 +47,7 @@ const SiteHeaderSuperMenu = (): JSX.Element => {
             <Dropdown.Item as={Link} to="/pdfs/resume">
               Resume
             </Dropdown.Item>
-            <Dropdown.Item as={Link} to="/pdfs/curriculum">
+            <Dropdown.Item as={Link} to="/pdfs/curriculum-vitae">
               Curriculum Vitae
             </Dropdown.Item>
           </Dropdown.Menu>
