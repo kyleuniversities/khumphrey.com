@@ -35,7 +35,7 @@ export const ProjectCard = (props: { name: string }): JSX.Element => {
         paddingBottom: padding,
       }}
     >
-      <Link to={`/${props.name}`}>
+      <Link to={`/projects/${props.name}`}>
         <span style={{ color: 'black', fontSize: '30px', fontWeight: 'bold' }}>
           <p>{data.title}</p>
         </span>

@@ -17,7 +17,10 @@ export const ProjectPage = (): JSX.Element => {
   });
   return (
     <SitePage>
-      <Container style={{ textAlign: 'left', fontSize: '20px' }}>
+      <Container
+        style={{ textAlign: 'left', fontSize: '20px', minHeight: '100vh' }}
+      >
+        <MultiLineBreak lines={1} />
         <ReactMarkdown children={projectPageText} />
         <MultiLineBreak lines={3} />
       </Container>

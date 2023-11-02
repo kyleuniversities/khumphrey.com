@@ -1,6 +1,6 @@
 # Full Stack Certificate
 
-![](./resources/project/full-stack-certificate/image.png)
+![](../resources/project/full-stack-certificate/image.png)
 
 A set of courses designed to cultivated skills and knowledge in
 cloud infrastructure, frontend development, and backend development.

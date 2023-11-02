@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Container,
+  Dropdown,
   Grid,
   Header,
   Icon,
@@ -38,15 +39,39 @@ const SiteHeaderSuperMenu = (): JSX.Element => {
         <h1>Kyle Universities</h1>
       </Menu.Item>
       <Menu.Item position="right">
-        <Menu.Item as={Link} to="/">
-          <h3>About</h3>
-        </Menu.Item>
-        <Menu.Item as={Link} to="/">
-          <h3>Skills</h3>
-        </Menu.Item>
-        <Menu.Item as={Link} to="/">
-          <h3>Projects</h3>
-        </Menu.Item>
+        <Dropdown inline item text="About">
+          <Dropdown.Menu>
+            <Dropdown.Item as={Link} to="/sections/about-me">
+              About Me
+            </Dropdown.Item>
+            <Dropdown.Item as={Link} to="/pdfs/resume">
+              Resume
+            </Dropdown.Item>
+            <Dropdown.Item as={Link} to="/pdfs/curriculum">
+              Curriculum Vitae
+            </Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+        <Dropdown inline item text="Skills">
+          <Dropdown.Menu>
+            <Dropdown.Item as={Link} to="/sections/technologies">
+              Technologies I Have Experience In
+            </Dropdown.Item>
+            <Dropdown.Item as={Link} to="/sections/accomplishments">
+              Accomplishments
+            </Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+        <Dropdown inline item text="Projects">
+          <Dropdown.Menu>
+            <Dropdown.Item as={Link} to="/sections/project-list">
+              Projects
+            </Dropdown.Item>
+            <Dropdown.Item as={Link} to="/sections/works-in-progress">
+              Works in Progress
+            </Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
         <Link to="https://www.linkedin.com/in/kyle-humphrey-b1324524a">
           <Icon color="black" name="linkedin" size="big" />
         </Link>
@@ -62,29 +87,29 @@ const SiteFooter = (): JSX.Element => {
   return (
     <SiteFooterSegment>
       <SiteFooterGridColumn headerContent="About">
-        <List.Item as={Link} to="/about-me">
+        <List.Item as={Link} to="/sections/about-me">
           About Me
         </List.Item>
-        <List.Item as={Link} to="/personal-statement">
-          Personal Statement
-        </List.Item>
-        <List.Item as={Link} to="/resume">
+        <List.Item as={Link} to="/pdfs/resume">
           Resume
+        </List.Item>
+        <List.Item as={Link} to="/pdfs/curriculum-vitae">
+          Curriculum Vitae
         </List.Item>
       </SiteFooterGridColumn>
       <SiteFooterGridColumn headerContent="Skills">
-        <List.Item as={Link} to="/technologies">
+        <List.Item as={Link} to="/sections/technologies">
           Technologies I Have Experience In
         </List.Item>
-        <List.Item as={Link} to="/achievements">
-          Achievements
+        <List.Item as={Link} to="/sections/accomplishments">
+          Accomplishments
         </List.Item>
       </SiteFooterGridColumn>
       <SiteFooterGridColumn headerContent="Projects">
-        <List.Item as={Link} to="/projects">
+        <List.Item as={Link} to="/sections/project-list">
           Projects
         </List.Item>
-        <List.Item as={Link} to="/works-in-progress">
+        <List.Item as={Link} to="/sections/works-in-progress">
           Works in Progress
         </List.Item>
       </SiteFooterGridColumn>

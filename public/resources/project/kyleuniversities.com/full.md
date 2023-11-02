@@ -1,6 +1,6 @@
 # Kyleuniversities.com
 
-![](./resources/project/kyleuniversities.com/image.png)
+![](../resources/project/kyleuniversities.com/image.png)
 
 My 2nd Typescript frontend application. My personal portfolio website
 for demonstrating my software engineering skills.

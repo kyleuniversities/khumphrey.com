@@ -1,6 +1,6 @@
 # Lambda
 
-![](./resources/project/lambda/image.png)
+![](../resources/project/lambda/image.png)
 
 My first Typescript frontend and Springboot backend application.
 A multipurpose function API application that can perform various
