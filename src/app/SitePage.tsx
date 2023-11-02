@@ -23,12 +23,12 @@ export const SitePage = (props: { children: ReactNode }): JSX.Element => {
 const SiteHeaderContainer = (): JSX.Element => {
   return (
     <Container>
-      <SiteHeaderMenu />
+      <SiteHeaderSuperMenu />
     </Container>
   );
 };
 
-const SiteHeaderMenu = (): JSX.Element => {
+const SiteHeaderSuperMenu = (): JSX.Element => {
   return (
     <Menu secondary>
       <Menu.Item as={Link} to="/">
@@ -38,6 +38,15 @@ const SiteHeaderMenu = (): JSX.Element => {
         <h1>Kyle Universities</h1>
       </Menu.Item>
       <Menu.Item position="right">
+        <Menu.Item as={Link} to="/">
+          <h3>About</h3>
+        </Menu.Item>
+        <Menu.Item as={Link} to="/">
+          <h3>Skills</h3>
+        </Menu.Item>
+        <Menu.Item as={Link} to="/">
+          <h3>Projects</h3>
+        </Menu.Item>
         <Link to="https://www.linkedin.com/in/kyle-humphrey-b1324524a">
           <Icon color="black" name="linkedin" size="big" />
         </Link>
