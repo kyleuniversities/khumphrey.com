@@ -13,7 +13,9 @@ other coders out there? Well ... Nothing much.
 &emsp;&emsp;&emsp;I'm just a passionate coder and developer who
 loves challenges and believes I'm at least ... fairly proficient at solving them. I like to take
 the time to really understand things for how they are and do things in the right way. I
-used to be a Team Leader in my Software Engineering class in San Francisco State
+love both Math and Computer Science as subjects. I once ranked in the top 1% of scorers in the national
+AMATYC Math Competition (2018-2019). And I'm an avid Java coder, having started coding in
+Java since 2016. I used to be a Team Leader in my Software Engineering class in San Francisco State
 University, as well as the Co-President of the Math Club in City College. So I have
 a bit of team and leadership experience that could be helpful.
 
