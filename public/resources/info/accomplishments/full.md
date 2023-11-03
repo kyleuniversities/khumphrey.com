@@ -1,6 +1,7 @@
 # Accomplishments
 
-Hi, my name is Kyle Humphrey and welcome to my
-website. I'm a hard worker and fast learner who loves to solve
-complex problems. I have significant experience in Java, ReactJS,
-and Python.
+![](../resources/info/accomplishments/image.png)
+
+In my years of coding, I've completed a few accomplishments that ... _hopefully_ might
+demonstrate _possible_ proficiency in particular skills needed for software engineering and
+development. The following are a list of key accomplishments I have achieved.
