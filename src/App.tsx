@@ -12,8 +12,8 @@ function App() {
         <Route index element={<DynamicHomePage />} />
         <Route path="/home" element={<StaticHomePage />} />
         <Route path="/projects/:projectId" element={<ProjectPage />} />
-        <Route path="/sections/:sectionId" element={<InfoPage />} />
-        <Route path="/pdfs/:sectionId" element={<PdfPage />} />
+        <Route path="/sections/info/:sectionId" element={<InfoPage />} />
+        <Route path="/sections/pdfs/:sectionId" element={<PdfPage />} />
       </Routes>
     </BrowserRouter>
   );

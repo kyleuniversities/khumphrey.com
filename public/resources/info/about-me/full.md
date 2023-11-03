@@ -1,6 +1,6 @@
 # About Me
 
-![](../resources/info/about-me/image.png)
+![](../../resources/info/about-me/image.png)
 
 &emsp;&emsp;&emsp;Hi, my name is Kyle Humphrey (@kyleuniversities) and welcome to my
 website! I'm a hard worker and fast learner who loves to solve

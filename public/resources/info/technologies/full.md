@@ -1,6 +1,6 @@
 # Technologies
 
-![](../resources/info/technologies/image.png)
+![](../../resources/info/technologies/image.png)
 
 While I have coding experience in Java for over 7 years, I have experience in a
 wide variety of software technologies including the following:
