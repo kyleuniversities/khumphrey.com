@@ -10,7 +10,7 @@ export const HomePageWorksInProgressContainer = (
       height="auto"
       animation="slide left"
       isAnimating={props.isAnimating}
-      timeout={3500}
+      timeout={5700}
     >
       <div
         style={{
