@@ -11,6 +11,16 @@ import {
   Segment,
 } from 'semantic-ui-react';
 
+const MAJOR_SECTION_URLS = {
+  ABOUT_ME: '/sections/info/about-me',
+  RESUME: '/sections/pdfs/resume',
+  CURRICULUM_VITAE: '/sections/pdfs/curriculum-vitae',
+  TECHNOLOGIES: '/sections/info/technologies',
+  ACCOMPLISHMENTS: '/sections/lists/accomplishments',
+  PROJECTS: '/sections/lists/projects',
+  WORKS_IN_PROGRESS: '/sections/lists/works-in-progress',
+};
+
 export const SitePage = (props: { children: ReactNode }): JSX.Element => {
   return (
     <Container fluid style={{ textAlign: 'center' }}>
@@ -41,33 +51,33 @@ const SiteHeaderSuperMenu = (): JSX.Element => {
       <Menu.Item position="right">
         <Dropdown inline item text="About">
           <Dropdown.Menu>
-            <Dropdown.Item as={Link} to="/sections/about-me">
+            <Dropdown.Item as={Link} to={MAJOR_SECTION_URLS.ABOUT_ME}>
               About Me
             </Dropdown.Item>
-            <Dropdown.Item as={Link} to="/pdfs/resume">
+            <Dropdown.Item as={Link} to={MAJOR_SECTION_URLS.RESUME}>
               Resume
             </Dropdown.Item>
-            <Dropdown.Item as={Link} to="/pdfs/curriculum">
+            <Dropdown.Item as={Link} to={MAJOR_SECTION_URLS.CURRICULUM_VITAE}>
               Curriculum Vitae
             </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
         <Dropdown inline item text="Skills">
           <Dropdown.Menu>
-            <Dropdown.Item as={Link} to="/sections/technologies">
+            <Dropdown.Item as={Link} to={MAJOR_SECTION_URLS.TECHNOLOGIES}>
               Technologies I Have Experience In
             </Dropdown.Item>
-            <Dropdown.Item as={Link} to="/sections/accomplishments">
+            <Dropdown.Item as={Link} to={MAJOR_SECTION_URLS.ACCOMPLISHMENTS}>
               Accomplishments
             </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
         <Dropdown inline item text="Projects">
           <Dropdown.Menu>
-            <Dropdown.Item as={Link} to="/sections/project-list">
+            <Dropdown.Item as={Link} to={MAJOR_SECTION_URLS.PROJECTS}>
               Projects
             </Dropdown.Item>
-            <Dropdown.Item as={Link} to="/sections/works-in-progress">
+            <Dropdown.Item as={Link} to={MAJOR_SECTION_URLS.WORKS_IN_PROGRESS}>
               Works in Progress
             </Dropdown.Item>
           </Dropdown.Menu>
@@ -87,29 +97,29 @@ const SiteFooter = (): JSX.Element => {
   return (
     <SiteFooterSegment>
       <SiteFooterGridColumn headerContent="About">
-        <List.Item as={Link} to="/sections/about-me">
+        <List.Item as={Link} to={MAJOR_SECTION_URLS.ABOUT_ME}>
           About Me
         </List.Item>
-        <List.Item as={Link} to="/pdfs/resume">
+        <List.Item as={Link} to={MAJOR_SECTION_URLS.RESUME}>
           Resume
         </List.Item>
-        <List.Item as={Link} to="/pdfs/curriculum-vitae">
+        <List.Item as={Link} to={MAJOR_SECTION_URLS.CURRICULUM_VITAE}>
           Curriculum Vitae
         </List.Item>
       </SiteFooterGridColumn>
       <SiteFooterGridColumn headerContent="Skills">
-        <List.Item as={Link} to="/sections/technologies">
+        <List.Item as={Link} to={MAJOR_SECTION_URLS.TECHNOLOGIES}>
           Technologies I Have Experience In
         </List.Item>
-        <List.Item as={Link} to="/sections/accomplishments">
+        <List.Item as={Link} to={MAJOR_SECTION_URLS.ACCOMPLISHMENTS}>
           Accomplishments
         </List.Item>
       </SiteFooterGridColumn>
       <SiteFooterGridColumn headerContent="Projects">
-        <List.Item as={Link} to="/sections/project-list">
+        <List.Item as={Link} to={MAJOR_SECTION_URLS.PROJECTS}>
           Projects
         </List.Item>
-        <List.Item as={Link} to="/sections/works-in-progress">
+        <List.Item as={Link} to={MAJOR_SECTION_URLS.WORKS_IN_PROGRESS}>
           Works in Progress
         </List.Item>
       </SiteFooterGridColumn>
