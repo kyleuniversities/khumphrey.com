@@ -24,6 +24,8 @@ export const HomePageWorksInProgressContainer = (
         </span>
         <MultiLineBreak lines={1} />
         <ProjectCard name="full-stack-certificate" />
+        <ProjectCard name="art-villa" />
+        <ProjectCard name="quizzical" />
         <MultiLineBreak lines={5} />
       </div>
     </HomePageTransitionContainer>
