@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ProjectPage } from './app/project/ProjectPage';
 import { InfoPage } from './app/info/InfoPage';
 import { PdfPage } from './app/pdf/PdfPage';
+import { ListPage } from './app/list/ListPage';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/home" element={<StaticHomePage />} />
         <Route path="/projects/:projectId" element={<ProjectPage />} />
         <Route path="/sections/info/:sectionId" element={<InfoPage />} />
+        <Route path="/sections/lists/:sectionId" element={<ListPage />} />
         <Route path="/sections/pdfs/:sectionId" element={<PdfPage />} />
       </Routes>
     </BrowserRouter>
