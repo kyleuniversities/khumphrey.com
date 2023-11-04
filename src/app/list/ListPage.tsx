@@ -8,6 +8,9 @@ import { ProjectCard } from '../project/ProjectCard';
 import { ResourcePage } from '../ResourcePage';
 import { fetchJson, fetchText } from '../util/fetch';
 
+/**
+ * Page for displaying a markdown as well as a list of items
+ */
 export const ListPage = (): JSX.Element => {
   const { sectionId } = useParams();
   const [listPageText, setListPageText] = useState('');

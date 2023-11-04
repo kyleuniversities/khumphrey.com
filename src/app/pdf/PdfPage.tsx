@@ -1,6 +1,9 @@
 import { useParams } from 'react-router';
 import { ResourcePage } from '../ResourcePage';
 
+/**
+ * Page for displaying a PDF
+ */
 export const PdfPage = (): JSX.Element => {
   const { sectionId } = useParams();
   const pdfUrl = window.location.origin + `/resources/pdf/${sectionId}.pdf`;
