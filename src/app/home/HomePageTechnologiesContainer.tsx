@@ -1,12 +1,20 @@
-import { Container, Grid, Icon } from 'semantic-ui-react';
-import { HomePageTransitionContainer } from './HomePage';
-import { MultiLineBreak } from '../../common/util/js/line';
+import { Container, Grid, Icon, SemanticICONS } from 'semantic-ui-react';
+import {
+  HomePageSectionContainer,
+  HomePageTextSectionTextContainer,
+  HomePageTransitionContainer,
+} from './HomePage';
+import {
+  GridRowMultiLineBreak,
+  MultiLineBreak,
+} from '../../common/util/js/line';
 
+/**
+ * Home Page Component for displaying technologies I have experience in
+ */
 export const HomePageTechnologiesContainer = (props: {
   isDynamic: boolean;
 }): JSX.Element => {
-  const columnWidth = 5;
-  const iconSize = 'large';
   return (
     <Container>
       <HomePageTransitionContainer
@@ -15,70 +23,63 @@ export const HomePageTechnologiesContainer = (props: {
         isAnimating={props.isDynamic}
         timeout={3500}
       >
-        <div
-          style={{
-            textAlign: 'left',
-            marginLeft: '100px',
-            marginRight: '100px',
-          }}
+        <HomePageSectionContainer
+          title="Technologies I Have Experience In"
+          innerLines={2}
+          postLines={10}
         >
-          <p>
-            <span style={{ fontSize: '34px', fontWeight: 'bold' }}>
-              Technologies I Have Experience In
-            </span>
-            <br />
-            <br />
-            <span
-              style={{
-                textAlign: 'center',
-                lineHeight: '150%',
-                fontSize: '27px',
-              }}
-            >
-              <span style={{ lineHeight: '150%', fontSize: '27px' }}>
-                While I am an avid coder in Java, having first coded in Java
-                since Fall 2016, I have experience the the following
-                technologies below:
-              </span>
-              <MultiLineBreak lines={2} />
-              <Grid>
-                <Grid.Row>
-                  <Grid.Column width={columnWidth}>
-                    <Icon name="coffee" size={iconSize} />
-                    <p>Java</p>
-                  </Grid.Column>
-                  <Grid.Column width={columnWidth}>
-                    <Icon name="react" size={iconSize} />
-                    <p>ReactJS</p>
-                  </Grid.Column>
-                  <Grid.Column width={columnWidth}>
-                    <Icon name="aws" size={iconSize} />
-                    <p>AWS</p>
-                  </Grid.Column>
-                </Grid.Row>
-                <Grid.Row>
-                  <MultiLineBreak lines={1} />
-                </Grid.Row>
-                <Grid.Row>
-                  <Grid.Column width={columnWidth}>
-                    <Icon name="node js" size={iconSize} />
-                    <p>NodeJS</p>
-                  </Grid.Column>
-                  <Grid.Column width={columnWidth}>
-                    <Icon name="python" size={iconSize} />
-                    <p>Python</p>
-                  </Grid.Column>
-                  <Grid.Column width={columnWidth}>
-                    <Icon name="database" size={iconSize} />
-                    <p>MySQL</p>
-                  </Grid.Column>
-                </Grid.Row>
-              </Grid>
-            </span>
-          </p>
-          <MultiLineBreak lines={10} />
-        </div>
+          <HomePageTextSectionTextContainer>
+            While I am an avid coder in Java, having first coded in Java since
+            Fall 2016, I have experience the the following technologies below:
+          </HomePageTextSectionTextContainer>
+          <MultiLineBreak lines={2} />
+          <TechnologyIconGrid />
+        </HomePageSectionContainer>
       </HomePageTransitionContainer>
     </Container>
+  );
+};
+
+/**
+ * Grid for efficiently showing technologies I have experience in
+ */
+const TechnologyIconGrid = (): JSX.Element => {
+  return (
+    <Grid
+      style={{
+        textAlign: 'center',
+        lineHeight: '150%',
+        fontSize: '27px',
+      }}
+    >
+      <Grid.Row>
+        <TechnologyIconGridColumn iconName="coffee" name="Java" />
+        <TechnologyIconGridColumn iconName="react" name="ReactJS" />
+        <TechnologyIconGridColumn iconName="aws" name="AWS" />
+      </Grid.Row>
+      <GridRowMultiLineBreak lines={1} />
+      <Grid.Row>
+        <TechnologyIconGridColumn iconName="node js" name="NodeJS" />
+        <TechnologyIconGridColumn iconName="python" name="Python" />
+        <TechnologyIconGridColumn iconName="database" name="MySQL" />
+      </Grid.Row>
+    </Grid>
+  );
+};
+
+/**
+ * Grid Column for efficiently showing a technology I have experience in
+ */
+const TechnologyIconGridColumn = (props: {
+  iconName: SemanticICONS;
+  name: string;
+}): JSX.Element => {
+  const columnWidth = 5;
+  const iconSize = 'large';
+  return (
+    <Grid.Column width={columnWidth}>
+      <Icon name={props.iconName} size={iconSize} />
+      <p>{props.name}</p>
+    </Grid.Column>
   );
 };
