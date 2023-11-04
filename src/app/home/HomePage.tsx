@@ -33,12 +33,6 @@ const HomePage = (props: { isDynamic: boolean }): JSX.Element => {
   );
 };
 
-const HomePageContainer = (props: { children: ReactNode }): JSX.Element => {
-  return (
-    <Container style={{ textAlign: 'center' }}>{props.children}</Container>
-  );
-};
-
 export const HomePageTransitionContainer = (props: {
   height: string;
   animation: string;

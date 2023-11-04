@@ -1,17 +1,10 @@
-import { Button, Container, Grid, Icon, Image } from 'semantic-ui-react';
-import {
-  AnimationSwitch,
-  HomePageTransitionContainer,
-  STATIC_ANIMATION,
-} from './HomePage';
+import { Container, Grid, Icon } from 'semantic-ui-react';
+import { HomePageTransitionContainer } from './HomePage';
 import { MultiLineBreak } from '../../common/util/js/line';
-import { useNavigate } from 'react-router';
-import { ConditionalContent } from '../ConditionalContent';
 
 export const HomePageTechnologiesContainer = (props: {
   isDynamic: boolean;
 }): JSX.Element => {
-  const navigate = useNavigate();
   const columnWidth = 5;
   const iconSize = 'large';
   return (

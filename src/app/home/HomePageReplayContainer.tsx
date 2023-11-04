@@ -1,12 +1,7 @@
-import { Button, Container, Image } from 'semantic-ui-react';
-import {
-  AnimationSwitch,
-  HomePageTransitionContainer,
-  STATIC_ANIMATION,
-} from './HomePage';
+import { Button, Container } from 'semantic-ui-react';
+import { HomePageTransitionContainer } from './HomePage';
 import { MultiLineBreak } from '../../common/util/js/line';
 import { useNavigate } from 'react-router';
-import { ConditionalContent } from '../ConditionalContent';
 
 export const HomePageReplayContainer = (props: {
   isDynamic: boolean;
