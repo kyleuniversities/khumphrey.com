@@ -1,0 +1,29 @@
+.homeSection {
+    text-align: left;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.homeSectionHeader {
+    font-size: 34px;
+    font-weight: bold;
+}
+
+.homeSectionText {
+    line-height: 150%;
+    font-size: 27px;
+}
+
+.homeWelcomeTransitionSection {
+    height: 480px;
+}
+
+.homeTransitionSection {
+    height: auto;
+}
+
+.homeTechnologyIconGrid {
+    text-align: center;
+    line-height: 150%;
+    font-size: 27px;
+}

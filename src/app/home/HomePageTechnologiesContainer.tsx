@@ -8,6 +8,7 @@ import {
   GridRowMultiLineBreak,
   MultiLineBreak,
 } from '../../common/util/js/line';
+import './index.css';
 
 /**
  * Home Page Component for displaying technologies I have experience in
@@ -18,7 +19,7 @@ export const HomePageTechnologiesContainer = (props: {
   return (
     <Container>
       <HomePageTransitionContainer
-        height="auto"
+        className="homeTransitionSection"
         animation="slide left"
         isAnimating={props.isDynamic}
         timeout={3500}
@@ -45,13 +46,7 @@ export const HomePageTechnologiesContainer = (props: {
  */
 const TechnologyIconGrid = (): JSX.Element => {
   return (
-    <Grid
-      style={{
-        textAlign: 'center',
-        lineHeight: '150%',
-        fontSize: '27px',
-      }}
-    >
+    <Grid className="homeTechnologyIconGrid">
       <Grid.Row>
         <TechnologyIconGridColumn iconName="coffee" name="Java" />
         <TechnologyIconGridColumn iconName="react" name="ReactJS" />
