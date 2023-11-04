@@ -20,7 +20,7 @@ export const HomePageTechnologiesContainer = (props: {
         height="auto"
         animation="slide left"
         isAnimating={props.isDynamic}
-        timeout={2750}
+        timeout={3500}
       >
         <div
           style={{

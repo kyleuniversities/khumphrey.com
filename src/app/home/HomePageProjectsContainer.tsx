@@ -10,7 +10,7 @@ export const HomePageProjectsContainer = (
       height="auto"
       animation="slide left"
       isAnimating={props.isAnimating}
-      timeout={3500}
+      timeout={4250}
     >
       <div
         style={{
