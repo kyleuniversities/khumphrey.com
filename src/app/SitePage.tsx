@@ -11,6 +11,9 @@ import {
   Segment,
 } from 'semantic-ui-react';
 
+/**
+ * Structure containing section urls
+ */
 const MAJOR_SECTION_URLS = {
   ABOUT_ME: '/sections/info/about-me',
   RESUME: '/sections/pdfs/resume',
@@ -21,6 +24,9 @@ const MAJOR_SECTION_URLS = {
   WORKS_IN_PROGRESS: '/sections/lists/works-in-progress',
 };
 
+/**
+ * General website page including a header and footer
+ */
 export const SitePage = (props: { children: ReactNode }): JSX.Element => {
   alert('WINDOW: ' + window.innerWidth + ' x ' + window.innerHeight);
   return (
@@ -32,6 +38,9 @@ export const SitePage = (props: { children: ReactNode }): JSX.Element => {
   );
 };
 
+/**
+ * The header for the website
+ */
 const SiteHeaderContainer = (): JSX.Element => {
   return (
     <Container>
@@ -40,6 +49,9 @@ const SiteHeaderContainer = (): JSX.Element => {
   );
 };
 
+/**
+ * The header for the website
+ */
 const SiteHeaderSuperMenu = (): JSX.Element => {
   return (
     <Menu secondary>
@@ -94,6 +106,9 @@ const SiteHeaderSuperMenu = (): JSX.Element => {
   );
 };
 
+/**
+ * The footer for the website
+ */
 const SiteFooter = (): JSX.Element => {
   return (
     <SiteFooterSegment>
@@ -128,6 +143,9 @@ const SiteFooter = (): JSX.Element => {
   );
 };
 
+/**
+ * The segment for the footer of the website
+ */
 const SiteFooterSegment = (props: { children: ReactNode }): JSX.Element => {
   const style = {
     paddingTop: '50px',
@@ -146,6 +164,9 @@ const SiteFooterSegment = (props: { children: ReactNode }): JSX.Element => {
   );
 };
 
+/**
+ * Grid Column for items of the site footer
+ */
 const SiteFooterGridColumn = (props: {
   headerContent: string;
   children: ReactNode;
