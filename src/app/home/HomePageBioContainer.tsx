@@ -1,22 +1,27 @@
 import { Container, Image } from 'semantic-ui-react';
-import { HomePageTransitionContainer } from './HomePage';
+import {
+  AnimationSwitch,
+  HomePageTransitionContainer,
+  STATIC_ANIMATION,
+} from './HomePage';
 import { MultiLineBreak } from '../../common/util/js/line';
 
-export const HomePageBioContainer = () => {
+export const HomePageBioContainer = (props: AnimationSwitch): JSX.Element => {
   return (
     <Container>
-      <HomePageBioWelcomeContainer />
-      <HomePageBioAboutContainer />
+      <HomePageBioWelcomeContainer isAnimating={props.isAnimating} />
+      <HomePageBioAboutContainer isAnimating={props.isAnimating} />
     </Container>
   );
 };
 
-const HomePageBioWelcomeContainer = () => {
-  const welcome = require('../../resources/welcome.png');
+const HomePageBioWelcomeContainer = (props: AnimationSwitch): JSX.Element => {
+  const welcome = window.location.origin + '/resources/welcome.png';
   return (
     <HomePageTransitionContainer
       height="480px"
-      animation="slide left"
+      animation={props.isAnimating ? 'slide left' : STATIC_ANIMATION}
+      isAnimating={props.isAnimating}
       timeout={500}
     >
       <Image centered src={welcome} />
@@ -24,11 +29,12 @@ const HomePageBioWelcomeContainer = () => {
   );
 };
 
-const HomePageBioAboutContainer = () => {
+const HomePageBioAboutContainer = (props: AnimationSwitch): JSX.Element => {
   return (
     <HomePageTransitionContainer
       height="auto"
       animation="slide left"
+      isAnimating={props.isAnimating}
       timeout={2000}
     >
       <Container>
@@ -46,10 +52,10 @@ const HomePageBioAboutContainer = () => {
             <br />
             <br />
             <span style={{ lineHeight: '150%', fontSize: '27px' }}>
-              &emsp;&emsp;Hi, my name is Kyle Humphrey and welcome to my
-              website. I'm a hard worker and fast learner who loves to solve
-              complex problems. I have significant experience in Java, ReactJS,
-              and Python.
+              &emsp;&emsp;Hi, my name is Kyle Humphrey (@kyleuniversities) and
+              welcome to my website! I'm a hard worker and fast learner who
+              loves to solve complex problems. I have significant experience in
+              Java, ReactJS, and Python.
             </span>
           </p>
           <MultiLineBreak lines={10} />

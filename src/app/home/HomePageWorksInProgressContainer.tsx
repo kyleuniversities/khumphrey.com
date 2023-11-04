@@ -1,13 +1,16 @@
 import { MultiLineBreak } from '../../common/util/js/line';
-import { WorkInProgressCard } from '../project/WorkInProgressCard';
-import { HomePageTransitionContainer } from './HomePage';
+import { ProjectCard } from '../project/ProjectCard';
+import { AnimationSwitch, HomePageTransitionContainer } from './HomePage';
 
-export const HomePageWorksInProgressContainer = () => {
+export const HomePageWorksInProgressContainer = (
+  props: AnimationSwitch
+): JSX.Element => {
   return (
     <HomePageTransitionContainer
       height="auto"
       animation="slide left"
-      timeout={3500}
+      isAnimating={props.isAnimating}
+      timeout={6450}
     >
       <div
         style={{
@@ -19,8 +22,11 @@ export const HomePageWorksInProgressContainer = () => {
         <span style={{ fontSize: '34px', fontWeight: 'bold' }}>
           <p>Works in Progress</p>
         </span>
-        <WorkInProgressCard name="full-stack-certificate" />
-        <MultiLineBreak lines={3} />
+        <MultiLineBreak lines={1} />
+        <ProjectCard name="full-stack-certificate" />
+        <ProjectCard name="art-villa" />
+        <ProjectCard name="quizzical" />
+        <MultiLineBreak lines={5} />
       </div>
     </HomePageTransitionContainer>
   );

@@ -1,37 +1,51 @@
 import { ReactNode, useEffect, useState } from 'react';
 import { Container, Transition } from 'semantic-ui-react';
-import { HomePageHeaderContainer } from './HomePageHeaderContainer';
+import { SitePage } from '../SitePage';
 import { HomePageBioContainer } from './HomePageBioContainer';
 import { HomePageProjectsContainer } from './HomePageProjectsContainer';
 import { HomePageWorksInProgressContainer } from './HomePageWorksInProgressContainer';
+import { HomePageReplayContainer } from './HomePageReplayContainer';
+import { HomePageTechnologiesContainer } from './HomePageTechnologiesContainer';
 
-export const HomePage = (): JSX.Element => {
-  return (
-    <HomePageContainer>
-      <HomePageHeaderContainer />
-      <HomePageBioContainer />
-      <HomePageProjectsContainer />
-      <HomePageWorksInProgressContainer />
-    </HomePageContainer>
-  );
+export const DynamicHomePage = (): JSX.Element => {
+  return <HomePage isDynamic={true} />;
 };
 
-const HomePageContainer = (props: { children: ReactNode }): JSX.Element => {
+export const StaticHomePage = (): JSX.Element => {
+  return <HomePage isDynamic={false} />;
+};
+
+export type AnimationSwitch = {
+  isAnimating: boolean;
+};
+
+export const STATIC_ANIMATION = 'pulse';
+
+const HomePage = (props: { isDynamic: boolean }): JSX.Element => {
   return (
-    <Container style={{ textAlign: 'center' }}>{props.children}</Container>
+    <SitePage>
+      <HomePageBioContainer isAnimating={props.isDynamic} />
+      <HomePageReplayContainer isDynamic={props.isDynamic} />
+      <HomePageTechnologiesContainer isDynamic={props.isDynamic} />
+      <HomePageProjectsContainer isAnimating={props.isDynamic} />
+      <HomePageWorksInProgressContainer isAnimating={props.isDynamic} />
+    </SitePage>
   );
 };
 
 export const HomePageTransitionContainer = (props: {
   height: string;
   animation: string;
+  isAnimating: boolean;
   timeout: number;
   children: ReactNode;
 }) => {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(!props.isAnimating);
   useEffect(() => {
     setTimeout(() => {
-      setVisible(true);
+      if (props.isAnimating || props.animation === STATIC_ANIMATION) {
+        setVisible(props.isAnimating);
+      }
     }, props.timeout);
   });
   return (
