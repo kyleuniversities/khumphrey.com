@@ -1,11 +1,30 @@
 import { Link } from 'react-router-dom';
 import { Container, Dropdown, Icon, Menu } from 'semantic-ui-react';
 import { SiteSectionGroupProps } from './SitePage';
+import { MobileHelper } from '../common/util/helper/MobileHelper';
+import { ConditionalContent } from './ConditionalContent';
 
 /**
  * The header for the website
  */
 export const SiteHeader = (props: { sectionMap: any }): JSX.Element => {
+  const isBigScreen = MobileHelper.isBigScreen();
+  return (
+    <>
+      <ConditionalContent condition={isBigScreen}>
+        <SiteBigHeader sectionMap={props.sectionMap} />
+      </ConditionalContent>
+      <ConditionalContent condition={!isBigScreen}>
+        <SiteSmallHeader sectionMap={props.sectionMap} />
+      </ConditionalContent>
+    </>
+  );
+};
+
+/**
+ * The header for the website on a big screen
+ */
+const SiteBigHeader = (props: { sectionMap: any }): JSX.Element => {
   return (
     <Container>
       <Menu secondary>
@@ -22,6 +41,33 @@ export const SiteHeader = (props: { sectionMap: any }): JSX.Element => {
     </Container>
   );
 };
+
+/**
+ * The header for the website on a small screen
+ */
+const SiteSmallHeader = (props: { sectionMap: any }): JSX.Element => {
+  return (
+    <Container>
+      <Menu secondary>
+        <SiteHeaderHomeIcon />
+        <SiteHeaderHomeTitle />
+      </Menu>
+      <Menu secondary>
+        <Menu.Item position="right">
+          <SiteHeaderAboutDropdown sectionMap={props.sectionMap} />
+          <SiteHeaderSkillsDropdown sectionMap={props.sectionMap} />
+          <SiteHeaderProjectsDropdown sectionMap={props.sectionMap} />
+          <SiteHeaderLinkedInIcon />
+          <SiteHeaderGitHubIcon />
+        </Menu.Item>
+      </Menu>
+    </Container>
+  );
+};
+
+/**
+ * The header for the website on a small screen
+ */
 
 /**
  * Home Icon for Site Header
