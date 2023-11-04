@@ -5,6 +5,7 @@ import { HomePageBioContainer } from './HomePageBioContainer';
 import { HomePageProjectsContainer } from './HomePageProjectsContainer';
 import { HomePageWorksInProgressContainer } from './HomePageWorksInProgressContainer';
 import { HomePageReplayContainer } from './HomePageReplayContainer';
+import { HomePageTechnologiesContainer } from './HomePageTechnologiesContainer';
 
 export const DynamicHomePage = (): JSX.Element => {
   return <HomePage isDynamic={true} />;
@@ -25,15 +26,10 @@ const HomePage = (props: { isDynamic: boolean }): JSX.Element => {
     <SitePage>
       <HomePageBioContainer isAnimating={props.isDynamic} />
       <HomePageReplayContainer isDynamic={props.isDynamic} />
+      <HomePageTechnologiesContainer isDynamic={props.isDynamic} />
       <HomePageProjectsContainer isAnimating={props.isDynamic} />
       <HomePageWorksInProgressContainer isAnimating={props.isDynamic} />
     </SitePage>
-  );
-};
-
-const HomePageContainer = (props: { children: ReactNode }): JSX.Element => {
-  return (
-    <Container style={{ textAlign: 'center' }}>{props.children}</Container>
   );
 };
 

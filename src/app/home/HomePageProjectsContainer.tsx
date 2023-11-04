@@ -10,7 +10,7 @@ export const HomePageProjectsContainer = (
       height="auto"
       animation="slide left"
       isAnimating={props.isAnimating}
-      timeout={3500}
+      timeout={4250}
     >
       <div
         style={{
@@ -24,6 +24,7 @@ export const HomePageProjectsContainer = (
         </span>
         <ProjectCard name="lambda" />
         <ProjectCard name="kyleuniversities.com" />
+        <ProjectCard name="docupaxx" />
         <MultiLineBreak lines={5} />
       </div>
     </HomePageTransitionContainer>
