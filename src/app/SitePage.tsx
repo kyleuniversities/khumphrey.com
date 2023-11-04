@@ -22,6 +22,7 @@ const MAJOR_SECTION_URLS = {
 };
 
 export const SitePage = (props: { children: ReactNode }): JSX.Element => {
+  alert('WINDOW: ' + window.innerWidth + ' x ' + window.innerHeight);
   return (
     <Container fluid style={{ textAlign: 'center' }}>
       <SiteHeaderContainer />
