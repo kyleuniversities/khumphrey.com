@@ -1,5 +1,5 @@
-import { ResourcePage } from '../ResourcePage';
+import { ResourceTextPage } from '../ResourcePage';
 
 export const InfoPage = (): JSX.Element => {
-  return <ResourcePage dataToken="info" />;
+  return <ResourceTextPage dataToken="info" />;
 };
