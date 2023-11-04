@@ -1,8 +1,15 @@
 import { Button, Container } from 'semantic-ui-react';
-import { HomePageTransitionContainer } from './HomePage';
+import {
+  HomePageSectionContainer,
+  HomePageTextSectionTextContainer,
+  HomePageTransitionContainer,
+} from './HomePage';
 import { MultiLineBreak } from '../../common/util/js/line';
-import { useNavigate } from 'react-router';
+import { NavigateFunction, useNavigate } from 'react-router';
 
+/**
+ * Home Page Component for offering to replay the slide-in animations
+ */
 export const HomePageReplayContainer = (props: {
   isDynamic: boolean;
 }): JSX.Element => {
@@ -15,35 +22,35 @@ export const HomePageReplayContainer = (props: {
         isAnimating={props.isDynamic}
         timeout={2750}
       >
-        <div
-          style={{
-            textAlign: 'left',
-            marginLeft: '100px',
-            marginRight: '100px',
-          }}
+        <HomePageSectionContainer
+          title="Want to See Everything Replay Again?"
+          innerLines={2}
+          postLines={10}
         >
-          <p>
-            <span style={{ fontSize: '34px', fontWeight: 'bold' }}>
-              Want to See Everything Replay Again?
-            </span>
-            <br />
-            <br />
-            <span style={{ lineHeight: '150%', fontSize: '27px' }}>
-              Want to see everything slide in again? Click the button below to
-              refresh the animation!
-            </span>
-          </p>
-          <Button
-            color="blue"
-            content="Replay"
-            onClick={() => {
-              navigate('/');
-              window.location.reload();
-            }}
-          />
-          <MultiLineBreak lines={10} />
-        </div>
+          <HomePageTextSectionTextContainer>
+            Want to see everything slide in again? Click the button below to
+            refresh the animation!
+          </HomePageTextSectionTextContainer>
+          <MultiLineBreak lines={2} />
+          <ReplayButton navigate={navigate} />
+        </HomePageSectionContainer>
       </HomePageTransitionContainer>
     </Container>
+  );
+};
+
+/**
+ * Button for replaying slide-in animations
+ */
+const ReplayButton = (props: { navigate: NavigateFunction }): JSX.Element => {
+  return (
+    <Button
+      color="blue"
+      content="Replay"
+      onClick={() => {
+        props.navigate('/');
+        window.location.reload();
+      }}
+    />
   );
 };
