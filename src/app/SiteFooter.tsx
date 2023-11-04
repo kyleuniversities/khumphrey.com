@@ -66,6 +66,7 @@ const SiteFooterSegment = (props: { children: ReactNode }): JSX.Element => {
   const style = {
     paddingTop: '50px',
     paddingBottom: '50px',
+    width: '100vw',
     minHeight: '15vh',
     textAlign: 'left',
   };
