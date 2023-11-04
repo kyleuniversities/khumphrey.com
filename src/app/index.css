@@ -1,0 +1,17 @@
+.resourcePage {
+    text-align: left;
+    font-size: 20px;
+    min-height: 100vh;
+}
+
+.siteFooterSegment {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    width: 100vw;
+    min-height: 15vh;
+    text-align: left;
+}
+
+.sitePage {
+    text-align: center;
+}

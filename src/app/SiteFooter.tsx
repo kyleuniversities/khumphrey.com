@@ -63,15 +63,8 @@ const SiteFooterGridProjectColumn = (props: {
  * The segment for the footer of the website
  */
 const SiteFooterSegment = (props: { children: ReactNode }): JSX.Element => {
-  const style = {
-    paddingTop: '50px',
-    paddingBottom: '50px',
-    width: '100vw',
-    minHeight: '15vh',
-    textAlign: 'left',
-  };
   return (
-    <Segment inverted vertical style={style}>
+    <Segment inverted vertical className="siteFooterSegment">
       <Container>
         <Grid divided inverted stackable>
           <Grid.Row>{props.children}</Grid.Row>

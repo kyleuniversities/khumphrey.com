@@ -35,7 +35,7 @@ const SECTION_MAP = {
 export const SitePage = (props: { children: ReactNode }): JSX.Element => {
   alert('WINDOW: ' + window.innerWidth + ' x ' + window.innerHeight);
   return (
-    <Container fluid style={{ textAlign: 'center' }}>
+    <Container fluid className="sitePage">
       <SiteHeader sectionMap={SECTION_MAP} />
       {props.children}
       <SiteFooter sectionMap={SECTION_MAP} />
