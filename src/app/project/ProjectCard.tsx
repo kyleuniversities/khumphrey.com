@@ -73,11 +73,7 @@ const ProjectCardMarkdown = (props: { introText: string }): JSX.Element => {
  * Span for project card title
  */
 const ProjectCardTitle = (props: { title: string }): JSX.Element => {
-  return (
-    <span className="projectCardTitle">
-      <p>{props.title}</p>
-    </span>
-  );
+  return <span className="projectCardTitle">{props.title}</span>;
 };
 
 /**

@@ -4,12 +4,36 @@
     min-height: 100vh;
 }
 
+.siteFooterGridColumnHeader {
+    color: white;
+    font-size: 15px;
+}
+
+.siteFooterListItem {
+    color: rgb(100, 100, 100);
+    font-size: 15px;
+}
+
 .siteFooterSegment {
     padding-top: 50px;
     padding-bottom: 50px;
     width: 100vw;
     min-height: 15vh;
     text-align: left;
+}
+
+.siteHeaderDropdownHeader {
+    font-size: 20px;
+}
+
+.siteHeaderDropdownItem {
+    font-size: 15px;
+    line-height: 50%;
+}
+
+.siteHeaderHomeTitle {
+    font-size: 32px;
+    font-weight: bold;
 }
 
 .sitePage {

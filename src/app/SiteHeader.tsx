@@ -3,6 +3,7 @@ import { Container, Dropdown, Icon, Menu } from 'semantic-ui-react';
 import { SiteSectionGroupProps } from './SitePage';
 import { MobileHelper } from '../common/util/helper/MobileHelper';
 import { ConditionalContent } from './ConditionalContent';
+import './index.css';
 
 /**
  * The header for the website
@@ -86,7 +87,7 @@ const SiteHeaderHomeIcon = (): JSX.Element => {
 const SiteHeaderHomeTitle = (): JSX.Element => {
   return (
     <Menu.Item as={Link} to="/home">
-      <h1>Kyle Universities</h1>
+      <span className="siteHeaderHomeTitle">Kyle Universities</span>
     </Menu.Item>
   );
 };
@@ -160,13 +161,15 @@ const SiteHeaderGitHubIcon = (): JSX.Element => {
 const SiteHeaderDropdown = (props: SiteSectionGroupProps): JSX.Element => {
   const sectionMap = props.sectionMap;
   return (
-    <Dropdown inline item text={props.title}>
-      <Dropdown.Menu>
-        {props.sectionKeys.map((key) => (
-          <SiteHeaderDropdownItem siteSection={sectionMap[key]} />
-        ))}
-      </Dropdown.Menu>
-    </Dropdown>
+    <div className="siteHeaderDropdownHeader">
+      <Dropdown inline item text={props.title}>
+        <Dropdown.Menu>
+          {props.sectionKeys.map((key) => (
+            <SiteHeaderDropdownItem siteSection={sectionMap[key]} />
+          ))}
+        </Dropdown.Menu>
+      </Dropdown>
+    </div>
   );
 };
 
@@ -177,7 +180,7 @@ const SiteHeaderDropdownItem = (props: { siteSection: any }): JSX.Element => {
   const siteSection = props.siteSection;
   return (
     <Dropdown.Item as={Link} to={siteSection.url}>
-      {siteSection.title}
+      <span className="siteHeaderDropdownItem">{siteSection.title}</span>
     </Dropdown.Item>
   );
 };

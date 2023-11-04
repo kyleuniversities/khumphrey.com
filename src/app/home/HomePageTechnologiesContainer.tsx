@@ -74,7 +74,8 @@ const TechnologyIconGridColumn = (props: {
   return (
     <Grid.Column width={columnWidth}>
       <Icon name={props.iconName} size={iconSize} />
-      <p>{props.name}</p>
+      <MultiLineBreak lines={1} />
+      <span className="homeTechnologyIconGridText">{props.name}</span>
     </Grid.Column>
   );
 };
