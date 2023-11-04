@@ -39,7 +39,7 @@ export const ProjectCard = (props: { name: string }): JSX.Element => {
   useEffect(() => {
     fetchJson(dataUrl, setData);
     fetchText(introUrl, setIntroText);
-  });
+  }, [dataUrl, introUrl]);
   return (
     <Card fluid style={PROJECT_CARD_STYLE}>
       <ProjectCardContainer

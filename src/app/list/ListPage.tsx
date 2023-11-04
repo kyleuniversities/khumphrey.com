@@ -1,8 +1,5 @@
 import { useEffect, useState } from 'react';
-import { SitePage } from '../SitePage';
 import ReactMarkdown from 'react-markdown';
-import { Container } from 'semantic-ui-react';
-import { MultiLineBreak } from '../../common/util/js/line';
 import { useParams } from 'react-router';
 import { ProjectCard } from '../project/ProjectCard';
 import { ResourcePage } from '../ResourcePage';

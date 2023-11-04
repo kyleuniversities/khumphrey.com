@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { MultiLineBreak } from '../../common/util/js/line';
 import { ProjectCard } from '../project/ProjectCard';
 import {
   AnimationSwitch,

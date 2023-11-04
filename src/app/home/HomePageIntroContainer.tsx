@@ -6,7 +6,6 @@ import {
   HomePageTransitionContainer,
   STATIC_ANIMATION,
 } from './HomePage';
-import { MultiLineBreak } from '../../common/util/js/line';
 
 /**
  * Home Page component for introductory content

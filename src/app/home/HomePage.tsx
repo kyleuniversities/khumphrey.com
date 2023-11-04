@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { Container, Transition } from 'semantic-ui-react';
 import { SitePage } from '../SitePage';
 import { HomePageIntroContainer } from './HomePageIntroContainer';

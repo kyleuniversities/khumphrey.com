@@ -1,5 +1,3 @@
-import { Consumer } from 'react';
-
 /**
  * Utility method for retrieving text from a resource
  */

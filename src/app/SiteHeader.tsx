@@ -1,15 +1,5 @@
-import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  Container,
-  Dropdown,
-  Grid,
-  Header,
-  Icon,
-  List,
-  Menu,
-  Segment,
-} from 'semantic-ui-react';
+import { Container, Dropdown, Icon, Menu } from 'semantic-ui-react';
 import { SiteSectionGroupProps } from './SitePage';
 
 /**

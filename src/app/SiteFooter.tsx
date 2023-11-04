@@ -1,18 +1,6 @@
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  Container,
-  Dropdown,
-  Grid,
-  Header,
-  Icon,
-  List,
-  Menu,
-  Segment,
-} from 'semantic-ui-react';
-import { SiteHeader } from './SiteHeader';
-import { fetchJson } from './util/fetch';
-import { SiteSection } from './SiteSection';
+import { Container, Grid, Header, List, Segment } from 'semantic-ui-react';
 import { SiteSectionGroupProps } from './SitePage';
 
 /**
