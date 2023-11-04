@@ -20,10 +20,10 @@ import { SiteFooter } from './SiteFooter';
  */
 const SECTION_MAP = {
   ABOUT_ME: SiteSection.newInstance('About Me', '/sections/info/about-me'),
-  RESUME: SiteSection.newInstance('Resume', '/sections/info/resume'),
+  RESUME: SiteSection.newInstance('Resume', '/sections/pdfs/resume'),
   CURRICULUM_VITAE: SiteSection.newInstance(
     'Curriculum Vitae',
-    '/sections/info/curriculum-vitae'
+    '/sections/pdfs/curriculum-vitae'
   ),
   TECHNOLOGIES: SiteSection.newInstance(
     'Technologies I Have Experience In',
@@ -31,12 +31,12 @@ const SECTION_MAP = {
   ),
   ACCOMPLISHMENTS: SiteSection.newInstance(
     'Accomplishments',
-    '/sections/info/accomplishments'
+    '/sections/lists/accomplishments'
   ),
-  PROJECTS: SiteSection.newInstance('Projects', '/sections/info/projects'),
+  PROJECTS: SiteSection.newInstance('Projects', '/sections/lists/projects'),
   WORKS_IN_PROGRESS: SiteSection.newInstance(
     'Works In Progress',
-    '/sections/info/works-in-progress'
+    '/sections/lists/works-in-progress'
   ),
 };
 
