@@ -1,11 +1,31 @@
 import { Link } from 'react-router-dom';
 import { Container, Dropdown, Icon, Menu } from 'semantic-ui-react';
 import { SiteSectionGroupProps } from './SitePage';
+import { MobileHelper } from '../common/util/helper/MobileHelper';
+import { ConditionalContent } from './ConditionalContent';
+import './index.css';
 
 /**
  * The header for the website
  */
 export const SiteHeader = (props: { sectionMap: any }): JSX.Element => {
+  const isBigScreen = MobileHelper.isBigScreen();
+  return (
+    <>
+      <ConditionalContent condition={isBigScreen}>
+        <SiteBigHeader sectionMap={props.sectionMap} />
+      </ConditionalContent>
+      <ConditionalContent condition={!isBigScreen}>
+        <SiteSmallHeader sectionMap={props.sectionMap} />
+      </ConditionalContent>
+    </>
+  );
+};
+
+/**
+ * The header for the website on a big screen
+ */
+const SiteBigHeader = (props: { sectionMap: any }): JSX.Element => {
   return (
     <Container>
       <Menu secondary>
@@ -24,6 +44,33 @@ export const SiteHeader = (props: { sectionMap: any }): JSX.Element => {
 };
 
 /**
+ * The header for the website on a small screen
+ */
+const SiteSmallHeader = (props: { sectionMap: any }): JSX.Element => {
+  return (
+    <Container>
+      <Menu secondary>
+        <SiteHeaderHomeIcon />
+        <SiteHeaderHomeTitle />
+      </Menu>
+      <Menu secondary>
+        <Menu.Item position="right">
+          <SiteHeaderAboutDropdown sectionMap={props.sectionMap} />
+          <SiteHeaderSkillsDropdown sectionMap={props.sectionMap} />
+          <SiteHeaderProjectsDropdown sectionMap={props.sectionMap} />
+          <SiteHeaderLinkedInIcon />
+          <SiteHeaderGitHubIcon />
+        </Menu.Item>
+      </Menu>
+    </Container>
+  );
+};
+
+/**
+ * The header for the website on a small screen
+ */
+
+/**
  * Home Icon for Site Header
  */
 const SiteHeaderHomeIcon = (): JSX.Element => {
@@ -40,7 +87,7 @@ const SiteHeaderHomeIcon = (): JSX.Element => {
 const SiteHeaderHomeTitle = (): JSX.Element => {
   return (
     <Menu.Item as={Link} to="/home">
-      <h1>Kyle Universities</h1>
+      <span className="siteHeaderHomeTitle">Kyle Universities</span>
     </Menu.Item>
   );
 };
@@ -114,13 +161,15 @@ const SiteHeaderGitHubIcon = (): JSX.Element => {
 const SiteHeaderDropdown = (props: SiteSectionGroupProps): JSX.Element => {
   const sectionMap = props.sectionMap;
   return (
-    <Dropdown inline item text={props.title}>
-      <Dropdown.Menu>
-        {props.sectionKeys.map((key) => (
-          <SiteHeaderDropdownItem siteSection={sectionMap[key]} />
-        ))}
-      </Dropdown.Menu>
-    </Dropdown>
+    <div className="siteHeaderDropdownHeader">
+      <Dropdown inline item text={props.title}>
+        <Dropdown.Menu>
+          {props.sectionKeys.map((key) => (
+            <SiteHeaderDropdownItem siteSection={sectionMap[key]} />
+          ))}
+        </Dropdown.Menu>
+      </Dropdown>
+    </div>
   );
 };
 
@@ -131,7 +180,7 @@ const SiteHeaderDropdownItem = (props: { siteSection: any }): JSX.Element => {
   const siteSection = props.siteSection;
   return (
     <Dropdown.Item as={Link} to={siteSection.url}>
-      {siteSection.title}
+      <span className="siteHeaderDropdownItem">{siteSection.title}</span>
     </Dropdown.Item>
   );
 };

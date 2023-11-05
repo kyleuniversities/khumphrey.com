@@ -6,6 +6,7 @@ import {
 } from './HomePage';
 import { MultiLineBreak } from '../../common/util/js/line';
 import { NavigateFunction, useNavigate } from 'react-router';
+import './index.css';
 
 /**
  * Home Page Component for offering to replay the slide-in animations
@@ -17,7 +18,7 @@ export const HomePageReplayContainer = (props: {
   return (
     <Container>
       <HomePageTransitionContainer
-        height="auto"
+        className="homeTransitionSection"
         animation="slide left"
         isAnimating={props.isDynamic}
         timeout={2750}

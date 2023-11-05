@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Grid, Header, List, Segment } from 'semantic-ui-react';
 import { SiteSectionGroupProps } from './SitePage';
+import './index.css';
 
 /**
  * The footer for the website
@@ -63,14 +64,8 @@ const SiteFooterGridProjectColumn = (props: {
  * The segment for the footer of the website
  */
 const SiteFooterSegment = (props: { children: ReactNode }): JSX.Element => {
-  const style = {
-    paddingTop: '50px',
-    paddingBottom: '50px',
-    minHeight: '15vh',
-    textAlign: 'left',
-  };
   return (
-    <Segment inverted vertical style={style}>
+    <Segment inverted vertical className="siteFooterSegment">
       <Container>
         <Grid divided inverted stackable>
           <Grid.Row>{props.children}</Grid.Row>
@@ -86,7 +81,7 @@ const SiteFooterSegment = (props: { children: ReactNode }): JSX.Element => {
 const SiteFooterGridColumn = (props: SiteSectionGroupProps): JSX.Element => {
   return (
     <Grid.Column width={4}>
-      <Header inverted as="h4" content={props.title} />
+      <SiteFooterGridColumnHeader title={props.title} />
       <List link inverted>
         {props.sectionKeys.map((key) => (
           <SiteFooterListItem siteSection={props.sectionMap[key]} />
@@ -97,12 +92,19 @@ const SiteFooterGridColumn = (props: SiteSectionGroupProps): JSX.Element => {
 };
 
 /**
+ * Grid Column Header for items of the site footer
+ */
+const SiteFooterGridColumnHeader = (props: { title: string }): JSX.Element => {
+  return <span className="siteFooterGridColumnHeader">{props.title}</span>;
+};
+
+/**
  * List Item for Site Footer
  */
 const SiteFooterListItem = (props: { siteSection: any }): JSX.Element => {
   return (
     <List.Item as={Link} to={props.siteSection.url}>
-      {props.siteSection.title}
+      <span className="siteFooterListItem">{props.siteSection.title}</span>
     </List.Item>
   );
 };
