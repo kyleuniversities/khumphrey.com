@@ -50,10 +50,10 @@ const SiteBigHeader = (props: { sectionMap: any }): JSX.Element => {
  */
 const SiteSmallHeader = (props: { sectionMap: any }): JSX.Element => {
   return (
-    <Container>
-      <div className="siteHeaderSmallTitle">
-        <SiteHeaderHomeTitle />
-      </div>
+    <Container fluid>
+      <CenteredContainer>
+        <SiteHeaderSmallTitleMenu />
+      </CenteredContainer>
       <CenteredContainer>
         <Menu secondary>
           <Menu.Item>
@@ -63,19 +63,40 @@ const SiteSmallHeader = (props: { sectionMap: any }): JSX.Element => {
           </Menu.Item>
         </Menu>
       </CenteredContainer>
-      <CenteredContainer>
-        <Menu secondary>
-          <SiteHeaderLinkedInLink />
-          <SiteHeaderGitHubLink />
-        </Menu>
-      </CenteredContainer>
     </Container>
   );
 };
 
 /**
- * The header for the website on a small screen
+ * The header menu for the website on a small screen
  */
+const SiteHeaderSmallTitleMenu = () => {
+  return (
+    <div className="siteHeaderSmallTitleMenu">
+      <div className="siteHeaderSmallTitle">
+        <SiteHeaderHomeTitle />
+      </div>
+      <div className="siteHeaderSmallTitleBar">
+        <SiteHeaderSmallBarsDropdown />
+      </div>
+    </div>
+  );
+};
+
+const SiteHeaderSmallBarsDropdown = () => {
+  return (
+    <Dropdown direction="left" icon="bars">
+      <Dropdown.Menu>
+        <Dropdown.Item>
+          <SiteHeaderLinkedInLink />
+        </Dropdown.Item>
+        <Dropdown.Item>
+          <SiteHeaderGitHubLink />
+        </Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+  );
+};
 
 /**
  * Home Icon for Site Header
