@@ -51,7 +51,9 @@ const SiteBigHeader = (props: { sectionMap: any }): JSX.Element => {
 const SiteSmallHeader = (props: { sectionMap: any }): JSX.Element => {
   return (
     <Container>
-      <SiteHeaderHomeTitle />
+      <div className="siteHeaderSmallTitle">
+        <SiteHeaderHomeTitle />
+      </div>
       <CenteredContainer>
         <Menu secondary>
           <Menu.Item>
@@ -155,7 +157,7 @@ const SiteHeaderLinkedInIcon = (): JSX.Element => {
 const SiteHeaderLinkedInLink = (): JSX.Element => {
   return (
     <Link to="https://www.linkedin.com/in/kyle-humphrey-b1324524a">
-      <span className="siteSmallHeaderHeader">xLinked In</span>
+      <span className="siteSmallHeaderHeader">Linked In</span>
     </Link>
   );
 };
