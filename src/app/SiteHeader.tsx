@@ -5,6 +5,7 @@ import { MobileHelper } from '../common/util/helper/MobileHelper';
 import { ConditionalContent } from './ConditionalContent';
 import './index.css';
 import { ReactNode } from 'react';
+import { CenteredContainer } from './CenterContainer';
 
 /**
  * The header for the website
@@ -50,19 +51,22 @@ const SiteBigHeader = (props: { sectionMap: any }): JSX.Element => {
 const SiteSmallHeader = (props: { sectionMap: any }): JSX.Element => {
   return (
     <Container>
-      <Menu secondary>
-        <SiteHeaderHomeIcon />
-        <SiteHeaderHomeTitle />
-      </Menu>
-      <Menu secondary>
-        <Menu.Item position="right">
-          <SiteHeaderAboutDropdown sectionMap={props.sectionMap} />
-          <SiteHeaderSkillsDropdown sectionMap={props.sectionMap} />
-          <SiteHeaderProjectsDropdown sectionMap={props.sectionMap} />
-          <SiteHeaderLinkedInIcon />
-          <SiteHeaderGitHubIcon />
-        </Menu.Item>
-      </Menu>
+      <SiteHeaderHomeTitle />
+      <CenteredContainer>
+        <Menu secondary>
+          <Menu.Item>
+            <SiteHeaderAboutDropdown sectionMap={props.sectionMap} />
+            <SiteHeaderSkillsDropdown sectionMap={props.sectionMap} />
+            <SiteHeaderProjectsDropdown sectionMap={props.sectionMap} />
+          </Menu.Item>
+        </Menu>
+      </CenteredContainer>
+      <CenteredContainer>
+        <Menu secondary>
+          <SiteHeaderLinkedInLink />
+          <SiteHeaderGitHubLink />
+        </Menu>
+      </CenteredContainer>
     </Container>
   );
 };
@@ -146,12 +150,34 @@ const SiteHeaderLinkedInIcon = (): JSX.Element => {
 };
 
 /**
+ * Link for my Linked In
+ */
+const SiteHeaderLinkedInLink = (): JSX.Element => {
+  return (
+    <Link to="https://www.linkedin.com/in/kyle-humphrey-b1324524a">
+      <span className="siteSmallHeaderHeader">xLinked In</span>
+    </Link>
+  );
+};
+
+/**
  * Home Icon for my GitHub
  */
 const SiteHeaderGitHubIcon = (): JSX.Element => {
   return (
     <Link to="https://github.com/kyleuniversities">
       <Icon color="black" name="github" size="big" />
+    </Link>
+  );
+};
+
+/**
+ * Link for my GitHub
+ */
+const SiteHeaderGitHubLink = (): JSX.Element => {
+  return (
+    <Link to="https://github.com/kyleuniversities">
+      <span className="siteSmallHeaderHeader">GitHub</span>
     </Link>
   );
 };

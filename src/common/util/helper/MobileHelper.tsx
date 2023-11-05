@@ -15,6 +15,13 @@ export class MobileHelper {
   }
 
   /**
+   * Gets the browser width
+   */
+  public static getBrowserWidth(): number {
+    return window.innerWidth;
+  }
+
+  /**
    * Checks if a the user is using a big screen
    */
   public static isBigScreen(): boolean {
