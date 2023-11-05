@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Grid, Header, List, Segment } from 'semantic-ui-react';
+import { Container, Grid, List } from 'semantic-ui-react';
 import { SiteSectionGroupProps } from './SitePage';
 import './index.css';
 

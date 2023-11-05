@@ -7,9 +7,6 @@ import {
   STATIC_ANIMATION,
 } from './HomePage';
 import './index.css';
-import { MultiLineBreak } from '../../common/util/js/line';
-import { ConditionalContent } from '../ConditionalContent';
-import { MobileHelper } from '../../common/util/helper/MobileHelper';
 
 /**
  * Home Page component for introductory content

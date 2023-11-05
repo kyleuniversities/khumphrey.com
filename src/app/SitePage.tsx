@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import { Container } from 'semantic-ui-react';
 import { SiteHeader } from './SiteHeader';
 import { SiteSection } from './SiteSection';
 import { SiteFooter } from './SiteFooter';
