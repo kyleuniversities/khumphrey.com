@@ -20,6 +20,7 @@
     width: 100vw;
     min-height: 15vh;
     text-align: left;
+    background-color: black;
 }
 
 .siteHeaderDropdownHeader {

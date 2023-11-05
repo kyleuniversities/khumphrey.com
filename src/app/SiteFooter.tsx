@@ -65,13 +65,13 @@ const SiteFooterGridProjectColumn = (props: {
  */
 const SiteFooterSegment = (props: { children: ReactNode }): JSX.Element => {
   return (
-    <Segment inverted vertical className="siteFooterSegment">
+    <div className="siteFooterSegment">
       <Container>
         <Grid divided inverted stackable>
           <Grid.Row>{props.children}</Grid.Row>
         </Grid>
       </Container>
-    </Segment>
+    </div>
   );
 };
 
