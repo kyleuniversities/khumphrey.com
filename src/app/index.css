@@ -31,9 +31,18 @@
     line-height: 50%;
 }
 
-.siteHeaderHomeTitle {
+.siteHeaderHomeButton {
     font-size: 32px;
     font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 4px;
+}
+
+.siteHeaderHomeButton:hover {
+    background-color: rgb(240, 240, 240);
 }
 
 .sitePage {
