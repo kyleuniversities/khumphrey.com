@@ -35,7 +35,7 @@ export const ResourceTextPage = (props: { dataToken: string }): JSX.Element => {
   }, [resourceUrl]);
   return (
     <ResourcePage>
-      <ReactMarkdown children={resourcePageText} />
+      <ReactMarkdown className="reactMarkdown" children={resourcePageText} />
     </ResourcePage>
   );
 };
