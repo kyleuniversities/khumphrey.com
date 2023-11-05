@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { fetchJson, fetchText } from '../util/fetch';
 import { MultiLineBreak } from '../../common/util/js/line';
+import './index.css';
 
 /**
  * Constant for the loading card
@@ -25,7 +26,7 @@ export const ProjectCard = (props: { name: string }): JSX.Element => {
     fetchText(introUrl, setIntroText);
   }, [dataUrl, introUrl]);
   return (
-    <Card fluid className="projectCard">
+    <Card fluid>
       <ProjectCardContainer
         dataToken={props.name}
         title={data.title}
@@ -46,10 +47,10 @@ const ProjectCardContainer = (props: {
   introText: string;
 }): JSX.Element => {
   return (
-    <Container fluid>
+    <Container fluid className="projectCardContainer">
       <Link to={`/projects/${props.dataToken}`}>
         <ProjectCardTitle title={props.title} />
-        <MultiLineBreak lines={1} />
+        <MultiLineBreak lines={2} />
         <ProjectCardImageContainer image={props.image} />
       </Link>
       <MultiLineBreak lines={2} />

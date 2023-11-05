@@ -2,20 +2,37 @@
     text-align: left;
     margin-left: 100px;
     margin-right: 100px;
+
+    @media only screen and (max-width: 600px) {
+        margin-left: 10px;
+        margin-right: 10px;
+    }  
 }
 
 .homeSectionHeader {
     font-size: 34px;
     font-weight: bold;
+
+    @media only screen and (max-width: 600px) {
+        font-size: 30px;
+    }  
 }
 
 .homeSectionText {
     line-height: 150%;
     font-size: 27px;
+
+    @media only screen and (max-width: 600px) {
+        font-size: 22px;
+    }  
 }
 
 .homeWelcomeTransitionSection {
     height: 480px;
+
+    @media only screen and (max-width: 600px) {
+        height: 240px;
+    }  
 }
 
 .homeTransitionSection {
