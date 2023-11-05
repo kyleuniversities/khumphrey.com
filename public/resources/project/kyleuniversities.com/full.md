@@ -10,15 +10,6 @@ with AWS Code Deploy.
 
 &nbsp;
 
-## Section List
-
-If you've perused around the website up to this point, the following may seem redundant. However,
-in kyleuniversities.com there are 3 major sections.
-
-&nbsp;
-
-&nbsp;
-
 ## Github Repositories
 
 [https://github.com/kyleuniversities/kyleuniversities.com](https://github.com/kyleuniversities/kyleuniversities.com)
