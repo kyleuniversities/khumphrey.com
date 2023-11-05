@@ -66,7 +66,7 @@ const SiteFooterGridProjectColumn = (props: {
 const SiteFooterSegment = (props: { children: ReactNode }): JSX.Element => {
   return (
     <div className="siteFooterSegment">
-      <Container fluid>
+      <Container>
         <Grid divided inverted stackable>
           <Grid.Row>{props.children}</Grid.Row>
         </Grid>

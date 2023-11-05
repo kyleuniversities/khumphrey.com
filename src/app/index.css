@@ -29,12 +29,19 @@
 }
 
 .siteFooterSegment {
+    padding-left: 150px;
+    padding-right: 150px;
     padding-top: 50px;
     padding-bottom: 50px;
     min-width: 100%;
     min-height: 15vh;
     text-align: left;
     background-color: black;
+
+    @media only screen and (max-width: 600px) {
+        padding-left: 10px;
+        padding-right: 10px;
+    }  
 }
 
 .siteHeaderHeader {
