@@ -31,7 +31,7 @@
 .siteFooterSegment {
     padding-top: 50px;
     padding-bottom: 50px;
-    width: 100vw;
+    min-width: 100%;
     min-height: 15vh;
     text-align: left;
     background-color: black;
