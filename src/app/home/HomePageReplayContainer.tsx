@@ -50,6 +50,7 @@ const ReplayButton = (props: { navigate: NavigateFunction }): JSX.Element => {
       content="Replay"
       onClick={() => {
         props.navigate('/');
+        window.scrollTo(0, 0);
         window.location.reload();
       }}
     />
