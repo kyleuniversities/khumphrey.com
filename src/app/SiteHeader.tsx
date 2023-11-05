@@ -187,7 +187,7 @@ const SiteHeaderDropdownItem = (props: { siteSection: any }): JSX.Element => {
 };
 
 /**
- *
+ * Button that links to the static Home Page
  */
 const SiteHeaderHomeButtonMenuItem = (props: {
   children: ReactNode;
