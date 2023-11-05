@@ -5,19 +5,15 @@ import { Container } from 'semantic-ui-react';
 import { MultiLineBreak } from '../common/util/js/line';
 import ReactMarkdown from 'react-markdown';
 import { fetchText } from './util/fetch';
+import './index.css';
 
 /**
  * Page that loads a resource
  */
 export const ResourcePage = (props: { children: ReactNode }): JSX.Element => {
-  const resourcePageStyle: any = {
-    textAlign: 'left',
-    fontSize: '20px',
-    minHeight: '100vh',
-  };
   return (
     <SitePage>
-      <Container style={resourcePageStyle}>
+      <Container className="resourcePage">
         <MultiLineBreak lines={1} />
         {props.children}
         <MultiLineBreak lines={3} />
@@ -39,7 +35,7 @@ export const ResourceTextPage = (props: { dataToken: string }): JSX.Element => {
   }, [resourceUrl]);
   return (
     <ResourcePage>
-      <ReactMarkdown children={resourcePageText} />
+      <ReactMarkdown className="reactMarkdown" children={resourcePageText} />
     </ResourcePage>
   );
 };

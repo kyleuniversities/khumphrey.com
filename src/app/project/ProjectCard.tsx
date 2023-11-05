@@ -4,27 +4,12 @@ import { useEffect, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { fetchJson, fetchText } from '../util/fetch';
 import { MultiLineBreak } from '../../common/util/js/line';
+import './index.css';
 
 /**
  * Constant for the loading card
  */
 const LOADING_CARD = { title: 'Loading...', description: 'Loading...' };
-
-/**
- * Constant for the Card padding
- */
-const padding = '40px';
-
-/**
- * Constant for card style attributes
- */
-const PROJECT_CARD_STYLE: any = {
-  textAlign: 'left',
-  paddingLeft: padding,
-  paddingRight: padding,
-  paddingTop: padding,
-  paddingBottom: padding,
-};
 
 /**
  * Card for displaying introductory information about a project
@@ -41,7 +26,7 @@ export const ProjectCard = (props: { name: string }): JSX.Element => {
     fetchText(introUrl, setIntroText);
   }, [dataUrl, introUrl]);
   return (
-    <Card fluid style={PROJECT_CARD_STYLE}>
+    <Card fluid>
       <ProjectCardContainer
         dataToken={props.name}
         title={data.title}
@@ -62,10 +47,10 @@ const ProjectCardContainer = (props: {
   introText: string;
 }): JSX.Element => {
   return (
-    <Container fluid>
+    <Container fluid className="projectCardContainer">
       <Link to={`/projects/${props.dataToken}`}>
         <ProjectCardTitle title={props.title} />
-        <MultiLineBreak lines={1} />
+        <MultiLineBreak lines={2} />
         <ProjectCardImageContainer image={props.image} />
       </Link>
       <MultiLineBreak lines={2} />
@@ -79,7 +64,7 @@ const ProjectCardContainer = (props: {
  */
 const ProjectCardMarkdown = (props: { introText: string }): JSX.Element => {
   return (
-    <span style={{ fontSize: '20px' }}>
+    <span className="projectCardMarkdown">
       <ReactMarkdown children={props.introText} />
     </span>
   );
@@ -89,11 +74,7 @@ const ProjectCardMarkdown = (props: { introText: string }): JSX.Element => {
  * Span for project card title
  */
 const ProjectCardTitle = (props: { title: string }): JSX.Element => {
-  return (
-    <span style={{ color: 'black', fontSize: '30px', fontWeight: 'bold' }}>
-      <p>{props.title}</p>
-    </span>
-  );
+  return <span className="projectCardTitle">{props.title}</span>;
 };
 
 /**

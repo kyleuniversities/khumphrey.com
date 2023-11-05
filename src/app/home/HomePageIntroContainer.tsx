@@ -6,6 +6,10 @@ import {
   HomePageTransitionContainer,
   STATIC_ANIMATION,
 } from './HomePage';
+import './index.css';
+import { MultiLineBreak } from '../../common/util/js/line';
+import { ConditionalContent } from '../ConditionalContent';
+import { MobileHelper } from '../../common/util/helper/MobileHelper';
 
 /**
  * Home Page component for introductory content
@@ -13,8 +17,8 @@ import {
 export const HomePageIntroContainer = (props: AnimationSwitch): JSX.Element => {
   return (
     <Container>
-      <HomePageBioWelcomeContainer isAnimating={props.isAnimating} />
-      <HomePageBioAboutContainer isAnimating={props.isAnimating} />
+      <HomePageIntroWelcomeContainer isAnimating={props.isAnimating} />
+      <HomePageIntroAboutContainer isAnimating={props.isAnimating} />
     </Container>
   );
 };
@@ -22,11 +26,11 @@ export const HomePageIntroContainer = (props: AnimationSwitch): JSX.Element => {
 /**
  * Container for the welcome image
  */
-const HomePageBioWelcomeContainer = (props: AnimationSwitch): JSX.Element => {
+const HomePageIntroWelcomeContainer = (props: AnimationSwitch): JSX.Element => {
   const welcome = window.location.origin + '/resources/welcome.png';
   return (
     <HomePageTransitionContainer
-      height="480px"
+      className="homeWelcomeTransitionSection"
       animation={props.isAnimating ? 'slide left' : STATIC_ANIMATION}
       isAnimating={props.isAnimating}
       timeout={500}
@@ -39,10 +43,10 @@ const HomePageBioWelcomeContainer = (props: AnimationSwitch): JSX.Element => {
 /**
  * Container for the bio
  */
-const HomePageBioAboutContainer = (props: AnimationSwitch): JSX.Element => {
+const HomePageIntroAboutContainer = (props: AnimationSwitch): JSX.Element => {
   return (
     <HomePageTransitionContainer
-      height="auto"
+      className="homeTransitionSection"
       animation="slide left"
       isAnimating={props.isAnimating}
       timeout={2000}

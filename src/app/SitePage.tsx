@@ -33,13 +33,13 @@ const SECTION_MAP = {
  * General website page including a header and footer
  */
 export const SitePage = (props: { children: ReactNode }): JSX.Element => {
-  alert('WINDOW: ' + window.innerWidth + ' x ' + window.innerHeight);
+  //alert('WINDOW: ' + window.innerWidth + ' x ' + window.innerHeight);
   return (
-    <Container fluid style={{ textAlign: 'center' }}>
+    <div className="sitePage">
       <SiteHeader sectionMap={SECTION_MAP} />
       {props.children}
       <SiteFooter sectionMap={SECTION_MAP} />
-    </Container>
+    </div>
   );
 };
 

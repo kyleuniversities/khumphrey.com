@@ -8,10 +8,23 @@ export class MobileHelper {
   private constructor() {}
 
   /**
-   * Checks if a the user is using a mobile browser
+   * Gets the aspect ratio of the browser
    */
-  public static isMobile(): boolean {
-    const widthHeightRatio = (window.innerWidth * 1.0) / window.innerHeight;
-    return widthHeightRatio < 0.8;
+  public static getAspectRatio(): number {
+    return (window.innerWidth * 1.0) / window.innerHeight;
+  }
+
+  /**
+   * Gets the browser width
+   */
+  public static getBrowserWidth(): number {
+    return window.innerWidth;
+  }
+
+  /**
+   * Checks if a the user is using a big screen
+   */
+  public static isBigScreen(): boolean {
+    return MobileHelper.getAspectRatio() > 0.8;
   }
 }

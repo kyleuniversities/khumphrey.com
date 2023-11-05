@@ -9,6 +9,7 @@ import {
 import { HomePageReplayContainer } from './HomePageReplayContainer';
 import { HomePageTechnologiesContainer } from './HomePageTechnologiesContainer';
 import { MultiLineBreak } from '../../common/util/js/line';
+import './index.css';
 
 /**
  * Home Page component including slide-in animation
@@ -55,7 +56,7 @@ const HomePage = (props: { isDynamic: boolean }): JSX.Element => {
  * Container to provide content potentially sliding in in an animation
  */
 export const HomePageTransitionContainer = (props: {
-  height: string;
+  className: string;
   animation: string;
   isAnimating: boolean;
   timeout: number;
@@ -70,7 +71,7 @@ export const HomePageTransitionContainer = (props: {
     }, props.timeout);
   });
   return (
-    <Container style={{ height: props.height }}>
+    <Container className={props.className}>
       <Transition visible={visible} animation={props.animation} duration={500}>
         <Container>{props.children}</Container>
       </Transition>
@@ -84,11 +85,7 @@ export const HomePageTransitionContainer = (props: {
 export const HomePageTextSectionTextContainer = (props: {
   children: ReactNode;
 }) => {
-  return (
-    <span style={{ lineHeight: '150%', fontSize: '27px' }}>
-      {props.children}
-    </span>
-  );
+  return <span className="homeSectionText">{props.children}</span>;
 };
 
 /**
@@ -100,16 +97,9 @@ export const HomePageSectionContainer = (props: {
   postLines: number;
   children: ReactNode;
 }) => {
-  const sectionStyle: any = {
-    textAlign: 'left',
-    marginLeft: '100px',
-    marginRight: '100px',
-  };
   return (
-    <div style={sectionStyle}>
-      <span style={{ fontSize: '34px', fontWeight: 'bold' }}>
-        {props.title}
-      </span>
+    <div className="homeSection">
+      <span className="homeSectionHeader">{props.title}</span>
       <MultiLineBreak lines={props.innerLines} />
       {props.children}
       <MultiLineBreak lines={props.postLines} />

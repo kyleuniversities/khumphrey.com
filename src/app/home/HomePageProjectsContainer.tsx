@@ -5,6 +5,7 @@ import {
   HomePageSectionContainer,
   HomePageTransitionContainer,
 } from './HomePage';
+import './index.css';
 
 type ProjectListContainerProps = AnimationSwitch & {
   listId: string;
@@ -60,7 +61,7 @@ const HomePageProjectListContainer = (
   });
   return (
     <HomePageTransitionContainer
-      height="auto"
+      className="homeTransitionSection"
       animation="slide left"
       isAnimating={props.isAnimating}
       timeout={props.timeout}

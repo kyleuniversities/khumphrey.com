@@ -1,11 +1,33 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Container, Dropdown, Icon, Menu } from 'semantic-ui-react';
 import { SiteSectionGroupProps } from './SitePage';
+import { MobileHelper } from '../common/util/helper/MobileHelper';
+import { ConditionalContent } from './ConditionalContent';
+import './index.css';
+import { ReactNode } from 'react';
+import { CenteredContainer } from './CenterContainer';
 
 /**
  * The header for the website
  */
 export const SiteHeader = (props: { sectionMap: any }): JSX.Element => {
+  const isBigScreen = MobileHelper.isBigScreen();
+  return (
+    <>
+      <ConditionalContent condition={isBigScreen}>
+        <SiteBigHeader sectionMap={props.sectionMap} />
+      </ConditionalContent>
+      <ConditionalContent condition={!isBigScreen}>
+        <SiteSmallHeader sectionMap={props.sectionMap} />
+      </ConditionalContent>
+    </>
+  );
+};
+
+/**
+ * The header for the website on a big screen
+ */
+const SiteBigHeader = (props: { sectionMap: any }): JSX.Element => {
   return (
     <Container>
       <Menu secondary>
@@ -24,13 +46,66 @@ export const SiteHeader = (props: { sectionMap: any }): JSX.Element => {
 };
 
 /**
+ * The header for the website on a small screen
+ */
+const SiteSmallHeader = (props: { sectionMap: any }): JSX.Element => {
+  return (
+    <Container fluid>
+      <CenteredContainer>
+        <SiteHeaderSmallTitleMenu />
+      </CenteredContainer>
+      <CenteredContainer>
+        <Menu secondary>
+          <Menu.Item>
+            <SiteHeaderAboutDropdown sectionMap={props.sectionMap} />
+            <SiteHeaderSkillsDropdown sectionMap={props.sectionMap} />
+            <SiteHeaderProjectsDropdown sectionMap={props.sectionMap} />
+          </Menu.Item>
+        </Menu>
+      </CenteredContainer>
+    </Container>
+  );
+};
+
+/**
+ * The header menu for the website on a small screen
+ */
+const SiteHeaderSmallTitleMenu = () => {
+  return (
+    <div className="siteHeaderSmallTitleMenu">
+      <div className="siteHeaderSmallTitle">
+        <SiteHeaderHomeTitle />
+      </div>
+      <div className="siteHeaderSmallTitleBar">
+        <SiteHeaderSmallBarsDropdown />
+      </div>
+    </div>
+  );
+};
+
+const SiteHeaderSmallBarsDropdown = () => {
+  return (
+    <Dropdown direction="left" icon="bars">
+      <Dropdown.Menu>
+        <Dropdown.Item>
+          <SiteHeaderLinkedInLink />
+        </Dropdown.Item>
+        <Dropdown.Item>
+          <SiteHeaderGitHubLink />
+        </Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+  );
+};
+
+/**
  * Home Icon for Site Header
  */
 const SiteHeaderHomeIcon = (): JSX.Element => {
   return (
-    <Menu.Item as={Link} to="/home">
-      <Icon name="home" size="big" />
-    </Menu.Item>
+    <SiteHeaderHomeButtonMenuItem>
+      <Icon name="home" />
+    </SiteHeaderHomeButtonMenuItem>
   );
 };
 
@@ -39,9 +114,9 @@ const SiteHeaderHomeIcon = (): JSX.Element => {
  */
 const SiteHeaderHomeTitle = (): JSX.Element => {
   return (
-    <Menu.Item as={Link} to="/home">
-      <h1>Kyle Universities</h1>
-    </Menu.Item>
+    <SiteHeaderHomeButtonMenuItem>
+      Kyle Universities
+    </SiteHeaderHomeButtonMenuItem>
   );
 };
 
@@ -98,6 +173,17 @@ const SiteHeaderLinkedInIcon = (): JSX.Element => {
 };
 
 /**
+ * Link for my Linked In
+ */
+const SiteHeaderLinkedInLink = (): JSX.Element => {
+  return (
+    <Link to="https://www.linkedin.com/in/kyle-humphrey-b1324524a">
+      <span className="siteSmallHeaderHeader">Linked In</span>
+    </Link>
+  );
+};
+
+/**
  * Home Icon for my GitHub
  */
 const SiteHeaderGitHubIcon = (): JSX.Element => {
@@ -109,18 +195,31 @@ const SiteHeaderGitHubIcon = (): JSX.Element => {
 };
 
 /**
+ * Link for my GitHub
+ */
+const SiteHeaderGitHubLink = (): JSX.Element => {
+  return (
+    <Link to="https://github.com/kyleuniversities">
+      <span className="siteSmallHeaderHeader">GitHub</span>
+    </Link>
+  );
+};
+
+/**
  * Dropdown for Site Header
  */
 const SiteHeaderDropdown = (props: SiteSectionGroupProps): JSX.Element => {
   const sectionMap = props.sectionMap;
   return (
-    <Dropdown inline item text={props.title}>
-      <Dropdown.Menu>
-        {props.sectionKeys.map((key) => (
-          <SiteHeaderDropdownItem siteSection={sectionMap[key]} />
-        ))}
-      </Dropdown.Menu>
-    </Dropdown>
+    <div className="siteHeaderDropdownHeader">
+      <Dropdown inline item text={props.title}>
+        <Dropdown.Menu>
+          {props.sectionKeys.map((key) => (
+            <SiteHeaderDropdownItem siteSection={sectionMap[key]} />
+          ))}
+        </Dropdown.Menu>
+      </Dropdown>
+    </div>
   );
 };
 
@@ -131,7 +230,29 @@ const SiteHeaderDropdownItem = (props: { siteSection: any }): JSX.Element => {
   const siteSection = props.siteSection;
   return (
     <Dropdown.Item as={Link} to={siteSection.url}>
-      {siteSection.title}
+      <span className="siteHeaderDropdownItem">{siteSection.title}</span>
     </Dropdown.Item>
+  );
+};
+
+/**
+ * Button that links to the static Home Page
+ */
+const SiteHeaderHomeButtonMenuItem = (props: {
+  children: ReactNode;
+}): JSX.Element => {
+  const navigate = useNavigate();
+  return (
+    <Menu.Item>
+      <span
+        className="siteHeaderHomeButton"
+        onClick={() => {
+          navigate('/home');
+          window.location.reload();
+        }}
+      >
+        {props.children}
+      </span>
+    </Menu.Item>
   );
 };
