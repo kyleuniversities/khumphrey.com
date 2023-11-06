@@ -22,7 +22,7 @@ export const ListPage = (): JSX.Element => {
   }, [listUrl, dataUrl]);
   return (
     <ResourcePage>
-      <ReactMarkdown children={listPageText} className="reactMarkDown" />
+      <ReactMarkdown children={listPageText} className="reactMarkdown" />
       {items.map((item) => {
         return <ProjectCard name={item} />;
       })}
