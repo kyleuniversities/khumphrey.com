@@ -1,38 +1,89 @@
 import { Card, Container, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import ReactMarkdown from 'react-markdown';
+import { fetchJson, fetchText } from '../util/fetch';
+import { MultiLineBreak } from '../../common/util/js/line';
+import './index.css';
 
+/**
+ * Constant for the loading card
+ */
+const LOADING_CARD = { title: 'Loading...', description: 'Loading...' };
+
+/**
+ * Card for displaying introductory information about a project
+ */
 export const ProjectCard = (props: { name: string }): JSX.Element => {
-  const data = require(`../../resources/project/${props.name}/data.json`);
-  const image = require(`../../resources/project/${props.name}/image.png`);
-  const padding = '40px';
+  const [data, setData] = useState(LOADING_CARD);
+  const [introText, setIntroText] = useState('');
+  const resourcePreText = `${window.location.origin}/resources/project/${props.name}`;
+  const dataUrl = `${resourcePreText}/data.json`;
+  const image = `${resourcePreText}/image.png`;
+  const introUrl = `${resourcePreText}/intro.md`;
+  useEffect(() => {
+    fetchJson(dataUrl, setData);
+    fetchText(introUrl, setIntroText);
+  }, [dataUrl, introUrl]);
   return (
-    <Card
-      fluid
-      style={{
-        textAlign: 'left',
-        paddingLeft: padding,
-        paddingRight: padding,
-        paddingTop: padding,
-        paddingBottom: padding,
-      }}
-    >
-      <span style={{ fontSize: '30px', fontWeight: 'bold' }}>
-        <p>{data.title}</p>
-      </span>
-      <br />
-      <Container>
-        <Image centered src={image} />
-      </Container>
-      <br />
-      <br />
-      <span style={{ fontSize: '20px' }}>
-        <p>{data.description}</p>
-        {data.github.map((github: string) => (
-          <p>
-            <Link to={github}>{github}</Link>
-          </p>
-        ))}
-      </span>
+    <Card fluid>
+      <ProjectCardContainer
+        dataToken={props.name}
+        title={data.title}
+        image={image}
+        introText={introText}
+      />
     </Card>
+  );
+};
+
+/**
+ * Container for displaying project card data
+ */
+const ProjectCardContainer = (props: {
+  dataToken: string;
+  title: string;
+  image: string;
+  introText: string;
+}): JSX.Element => {
+  return (
+    <Container fluid className="projectCardContainer">
+      <Link to={`/projects/${props.dataToken}`}>
+        <ProjectCardTitle title={props.title} />
+        <MultiLineBreak lines={2} />
+        <ProjectCardImageContainer image={props.image} />
+      </Link>
+      <MultiLineBreak lines={2} />
+      <ProjectCardMarkdown introText={props.introText} />
+    </Container>
+  );
+};
+
+/**
+ * Span for project card markdown
+ */
+const ProjectCardMarkdown = (props: { introText: string }): JSX.Element => {
+  return (
+    <span className="projectCardMarkdown">
+      <ReactMarkdown children={props.introText} />
+    </span>
+  );
+};
+
+/**
+ * Span for project card title
+ */
+const ProjectCardTitle = (props: { title: string }): JSX.Element => {
+  return <span className="projectCardTitle">{props.title}</span>;
+};
+
+/**
+ * Container for displaying project card image
+ */
+const ProjectCardImageContainer = (props: { image: string }): JSX.Element => {
+  return (
+    <Container>
+      <Image centered src={props.image} />
+    </Container>
   );
 };

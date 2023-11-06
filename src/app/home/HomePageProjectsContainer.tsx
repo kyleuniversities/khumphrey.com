@@ -1,28 +1,76 @@
-import { MultiLineBreak } from '../../common/util/js/line';
+import { useEffect, useState } from 'react';
 import { ProjectCard } from '../project/ProjectCard';
-import { HomePageTransitionContainer } from './HomePage';
+import {
+  AnimationSwitch,
+  HomePageSectionContainer,
+  HomePageTransitionContainer,
+} from './HomePage';
+import './index.css';
 
-export const HomePageProjectsContainer = () => {
+type ProjectListContainerProps = AnimationSwitch & {
+  listId: string;
+  timeout: number;
+};
+
+/**
+ * Home Page Component for showing a list of projects
+ */
+export const HomePageProjectsContainer = (
+  props: AnimationSwitch
+): JSX.Element => {
+  return (
+    <HomePageProjectListContainer
+      isAnimating={props.isAnimating}
+      listId="projects"
+      timeout={4250}
+    />
+  );
+};
+
+/**
+ * Home Page Component for displaying a list of projects in progress
+ */
+export const HomePageWorksInProgressContainer = (
+  props: AnimationSwitch
+): JSX.Element => {
+  return (
+    <HomePageProjectListContainer
+      isAnimating={props.isAnimating}
+      listId="works-in-progress"
+      timeout={6450}
+    />
+  );
+};
+
+/**
+ * Home Page Component for showing a list of projects
+ */
+const HomePageProjectListContainer = (
+  props: ProjectListContainerProps
+): JSX.Element => {
+  const [title, setTitle] = useState('');
+  const [items, setItems] = useState([]);
+  const dataUrl = `/resources/list/${props.listId}/data.json`;
+  useEffect(() => {
+    fetch(dataUrl)
+      .then((res) => res.json())
+      .then((res) => {
+        setTitle(res.title);
+        setItems(res.items);
+      });
+  });
   return (
     <HomePageTransitionContainer
-      height="auto"
+      className="homeTransitionSection"
       animation="slide left"
-      timeout={3500}
+      isAnimating={props.isAnimating}
+      timeout={props.timeout}
     >
-      <div
-        style={{
-          textAlign: 'left',
-          marginLeft: '100px',
-          marginRight: '100px',
-        }}
-      >
-        <span style={{ fontSize: '34px', fontWeight: 'bold' }}>
-          <p>Projects</p>
-        </span>
-        <ProjectCard name="lambda" />
-        <ProjectCard name="kyleuniversities.com" />
-        <MultiLineBreak lines={3} />
-      </div>
+      <HomePageSectionContainer title={title} innerLines={0} postLines={5}>
+        {items.map((item) => (
+          <ProjectCard name={item} />
+        ))}
+      </HomePageSectionContainer>
     </HomePageTransitionContainer>
   );
 };
