@@ -11,7 +11,7 @@ and Python.
 other coders out there? Well ... Nothing much. Sorry to disappoint you. Nothing to see here. Nope.
 
 &emsp;&emsp;&emsp;I'm a passionate coder and developer who
-loves challenges and believes I'm at least ... fairly proficient at solving them. I like to take
+loves challenges and believes I'm at least ... (_fairly_) proficient at solving them. I like to take
 the time to really understand things for how they are and do things in the right way. I
 love both Math and Computer Science as subjects. I once ranked in the top 1% of scorers in the national
 AMATYC Math Competition (2018-2019). And I'm an avid Java coder, having started coding in

@@ -15,7 +15,7 @@
 }
 
 .reactMarkdown img {
-    max-width: 80vw;
+    max-width: 90vw;
 }
 
 .siteFooterGridColumnHeader {
@@ -26,6 +26,10 @@
 .siteFooterListItem {
     color: rgb(100, 100, 100);
     font-size: 15px;
+}
+
+.siteFooterListItem:hover {
+    color: rgb(240, 240, 240);
 }
 
 .siteFooterSegment {
