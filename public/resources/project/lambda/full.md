@@ -11,6 +11,33 @@ a command line for virtually any software task.
 
 &nbsp;
 
+# Technologies Utilized
+
+Throughout the development of this application, I incorporated various frontend/backend technologies
+including:
+
+- **Typescript React**: Invoked the use of Typescript React classes, functions, and types.
+- **Semantic UI**: Invoked Semantic UI as a framework on top of React for components.
+- **Spring Boot**: Invoked the use of Spring Boot for the backend API.
+
+&nbsp;
+
+&nbsp;
+
+# Practices Utilized
+
+Throughout the development of this application, I incorporated various coding practices including:
+
+- **MVC Architecture**: Incorporated MVC architecture on frontend module structure.
+- **SOLID Programming**: Incorporated SOLID programming for the libraries in the backend API.
+- **Encapsulation**: All classes in the backend API are perfectly encapsulated.
+- **Helper Classes**: Operations of a specific type are unified into a Helper class API.
+- **Factory Pattern**: All objects are generated via factory methods.
+
+&nbsp;
+
+&nbsp;
+
 ## List of API Controllers
 
 The Lambda Application acts a hub for various API Controllers that perform specific types of
