@@ -4,7 +4,6 @@ import { useParams } from 'react-router';
 import { ProjectCard } from '../project/ProjectCard';
 import { ResourcePage } from '../ResourcePage';
 import { fetchJson, fetchText } from '../util/fetch';
-import { get } from 'http';
 import { getResourceUrl } from '../util/resource';
 
 /**
