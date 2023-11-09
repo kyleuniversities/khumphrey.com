@@ -28,10 +28,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-
-        env:
-          REACT_APP_RESOURCE_URL: ${{ secrets.REACT_APP_RESOURCE_URL }}
-
       - name: Build client
         run: npm run build
 
