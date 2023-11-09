@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import { fetchJson, fetchText } from '../util/fetch';
 import { MultiLineBreak } from '../../common/util/js/line';
 import './index.css';
+import { getResourceUrl } from '../util/resource';
 
 /**
  * Constant for the loading card
@@ -17,7 +18,7 @@ const LOADING_CARD = { title: 'Loading...', description: 'Loading...' };
 export const ProjectCard = (props: { name: string }): JSX.Element => {
   const [data, setData] = useState(LOADING_CARD);
   const [introText, setIntroText] = useState('');
-  const resourcePreText = `${window.location.origin}/resources/project/${props.name}`;
+  const resourcePreText = getResourceUrl(`resources/project/${props.name}`);
   const dataUrl = `${resourcePreText}/data.json`;
   const image = `${resourcePreText}/image.png`;
   const introUrl = `${resourcePreText}/intro.md`;

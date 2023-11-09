@@ -7,6 +7,7 @@ import {
   STATIC_ANIMATION,
 } from './HomePage';
 import './index.css';
+import { getResourceUrl } from '../util/resource';
 
 /**
  * Home Page component for introductory content
@@ -24,7 +25,7 @@ export const HomePageIntroContainer = (props: AnimationSwitch): JSX.Element => {
  * Container for the welcome image
  */
 const HomePageIntroWelcomeContainer = (props: AnimationSwitch): JSX.Element => {
-  const welcome = window.location.origin + '/resources/welcome.png';
+  const welcome = getResourceUrl('resources/welcome.png');
   return (
     <HomePageTransitionContainer
       className="homeWelcomeTransitionSection"
