@@ -13,7 +13,7 @@ export const ListPage = (): JSX.Element => {
   const { sectionId } = useParams();
   const [listPageText, setListPageText] = useState('');
   const [items, setItems] = useState([]);
-  const resourcePretext = getResourceUrl(`/resources/list/${sectionId}`);
+  const resourcePretext = getResourceUrl(`resources/list/${sectionId}`);
   const listUrl = resourcePretext + `/pretext.md`;
   const dataUrl = resourcePretext + `/data.json`;
   useEffect(() => {
