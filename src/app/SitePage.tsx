@@ -37,8 +37,8 @@ const SECTION_MAP = {
 export const SitePage = (props: { children: ReactNode }): JSX.Element => {
   //alert('WINDOW: ' + window.innerWidth + ' x ' + window.innerHeight);
   const mobileBugMessageOn =
-    MobileHelper.getBrowserWidth() <= 1000 ||
-    MobileHelper.getBrowserWidth() > MobileHelper.getBrowserWidth();
+    MobileHelper.getBrowserWidth() * MobileHelper.getBrowserHeight() <
+    1100 * 750;
   return (
     <div className="sitePage">
       <ConditionalContent condition={mobileBugMessageOn}>
