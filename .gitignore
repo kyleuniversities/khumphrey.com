@@ -26,4 +26,3 @@ yarn-error.log*
 /notes
 /src/raw-resources
 .env
-/public/resources
