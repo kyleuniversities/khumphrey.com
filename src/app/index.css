@@ -109,4 +109,22 @@
 
 .sitePage {
     text-align: center;
+
+    @media only screen and (max-width: 600px) and (max-height: 600px) {
+        text-align: left;
+        min-height: 100vh;
+        line-height: 80%;
+    }  
+}
+
+.sitePageBugMessage {
+    text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.sitePageBugMessageTitle {
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;
 }
