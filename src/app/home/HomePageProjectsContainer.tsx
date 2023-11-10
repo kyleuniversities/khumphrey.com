@@ -6,6 +6,7 @@ import {
   HomePageTransitionContainer,
 } from './HomePage';
 import './index.css';
+import { getResourceUrl } from '../util/resource';
 
 type ProjectListContainerProps = AnimationSwitch & {
   listId: string;
@@ -50,7 +51,7 @@ const HomePageProjectListContainer = (
 ): JSX.Element => {
   const [title, setTitle] = useState('');
   const [items, setItems] = useState([]);
-  const dataUrl = `/resources/list/${props.listId}/data.json`;
+  const dataUrl = getResourceUrl(`resources/list/${props.listId}/data.json`);
   useEffect(() => {
     fetch(dataUrl)
       .then((res) => res.json())

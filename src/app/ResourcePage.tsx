@@ -6,6 +6,7 @@ import { MultiLineBreak } from '../common/util/js/line';
 import ReactMarkdown from 'react-markdown';
 import { fetchText } from './util/fetch';
 import './index.css';
+import { getResourceUrl } from './util/resource';
 
 /**
  * Page that loads a resource
@@ -28,8 +29,9 @@ export const ResourcePage = (props: { children: ReactNode }): JSX.Element => {
 export const ResourceTextPage = (props: { dataToken: string }): JSX.Element => {
   const { id } = useParams();
   const [resourcePageText, setResourcePageText] = useState('');
-  const resourceUrl =
-    window.location.origin + `/resources/${props.dataToken}/${id}/full.md`;
+  const resourceUrl = getResourceUrl(
+    `resources/${props.dataToken}/${id}/full.md`
+  );
   useEffect(() => {
     fetchText(resourceUrl, setResourcePageText);
   }, [resourceUrl]);
