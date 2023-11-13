@@ -6,6 +6,9 @@ import { fetchJson, fetchText } from '../util/fetch';
 import { MultiLineBreak } from '../../common/util/js/line';
 import './index.css';
 import { getResourceUrl } from '../util/resource';
+import { MarkdownHelper } from '../helper/MarkdownHelper';
+import { ifThen } from '../../common/util/conditional';
+import { MobileHelper } from '../../common/util/helper/MobileHelper';
 
 /**
  * Constant for the loading card
@@ -24,7 +27,11 @@ export const ProjectCard = (props: { name: string }): JSX.Element => {
   const introUrl = `${resourcePreText}/intro.md`;
   useEffect(() => {
     fetchJson(dataUrl, setData);
-    fetchText(introUrl, setIntroText);
+    fetchText(introUrl, (text) => {
+      const isMobile = MobileHelper.getBrowserArea() < 700 * 500;
+      ifThen(isMobile, () => setIntroText(MarkdownHelper.reformat(text)));
+      ifThen(!isMobile, () => setIntroText(text));
+    });
   }, [dataUrl, introUrl]);
   return (
     <Card fluid>
