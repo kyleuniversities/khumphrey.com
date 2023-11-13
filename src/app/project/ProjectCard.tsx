@@ -9,7 +9,6 @@ import './index.css';
 import { getResourceUrl } from '../util/resource';
 import { MarkdownHelper } from '../helper/MarkdownHelper';
 import { ifThen } from '../../common/util/conditional';
-import { MobileHelper } from '../../common/util/helper/MobileHelper';
 import {
   BIG_SCREEN_QUERY,
   MEDIUM_SCREEN_QUERY,

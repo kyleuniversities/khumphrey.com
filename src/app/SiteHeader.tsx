@@ -2,7 +2,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import { Container, Dropdown, Icon, Menu } from 'semantic-ui-react';
 import { SiteSectionGroupProps } from './SitePage';
-import { MobileHelper } from '../common/util/helper/MobileHelper';
 import { ConditionalContent } from './ConditionalContent';
 import './index.css';
 import { ReactNode } from 'react';
