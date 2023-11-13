@@ -12,7 +12,10 @@ export class MarkdownHelper {
   /**
    * Reformats Card Markdown Text
    */
-  public static reformat(text: string): string {
-    return CardMarkdownReformatter.newInstance().reformat(text);
+  public static reformat(text: string, textBreakLength: number): string {
+    return CardMarkdownReformatter.newInstance().reformat(
+      text,
+      textBreakLength
+    );
   }
 }

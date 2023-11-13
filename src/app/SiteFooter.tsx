@@ -80,7 +80,7 @@ const SiteFooterSegment = (props: { children: ReactNode }): JSX.Element => {
  */
 const SiteFooterGridColumn = (props: SiteSectionGroupProps): JSX.Element => {
   return (
-    <Grid.Column width={4}>
+    <Grid.Column width={5}>
       <SiteFooterGridColumnHeader title={props.title} />
       <List link inverted>
         {props.sectionKeys.map((key) => (
@@ -103,8 +103,10 @@ const SiteFooterGridColumnHeader = (props: { title: string }): JSX.Element => {
  */
 const SiteFooterListItem = (props: { siteSection: any }): JSX.Element => {
   return (
-    <List.Item as={Link} to={props.siteSection.url}>
-      <span className="siteFooterListItem">{props.siteSection.title}</span>
-    </List.Item>
+    <div className="siteFooterListItemContainer">
+      <List.Item as={Link} to={props.siteSection.url}>
+        <span className="siteFooterListItem">{props.siteSection.title}</span>
+      </List.Item>
+    </div>
   );
 };

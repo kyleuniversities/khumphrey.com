@@ -1,6 +1,5 @@
 import { ifThen } from '../../common/util/conditional';
-
-const TEXT_BREAK_LENGTH = 26;
+import { IntegerWrapper } from '../../common/util/wrapper';
 
 /**
  * Utility class for reformatting card markdown links on mobile
@@ -8,6 +7,7 @@ const TEXT_BREAK_LENGTH = 26;
 export class CardMarkdownReformatter {
   // Instance Fields
   private text: string;
+  private textBreakLength: number;
   private lines: string[];
   private reformattedLines: string[];
   private line: string;
@@ -25,6 +25,7 @@ export class CardMarkdownReformatter {
    */
   private constructor() {
     this.text = '';
+    this.textBreakLength = -1;
     this.lines = [];
     this.reformattedLines = [];
     this.line = '';
@@ -34,8 +35,8 @@ export class CardMarkdownReformatter {
   /**
    * Main Instance Method
    */
-  public reformat(text: string): string {
-    this.reset(text);
+  public reformat(text: string, textBreakLength: number): string {
+    this.reset(text, textBreakLength);
     this.forEachLine((line: string) => {
       this.resetLine(line);
       this.checkIfIsLink();
@@ -65,27 +66,26 @@ export class CardMarkdownReformatter {
     const restIndex = this.line.indexOf(']');
     const rest = this.line.substring(restIndex);
     const firstText = this.line.substring(0, restIndex);
-    const linkLines = [];
-    for (let i = 0; i < firstText.length; i += TEXT_BREAK_LENGTH) {
-      const start = i;
-      const upTo = start + TEXT_BREAK_LENGTH;
-      linkLines.push(firstText.substring(start, upTo));
+    const linkLineBuilder: string[] = [];
+    const numberOfNonDashCharacters = IntegerWrapper.newInstance(0);
+    for (let i = 0; i < firstText.length; i++) {
+      const ch = firstText.charAt(i);
+      linkLineBuilder.push(ch);
+      ifThen(ch === '-', () => numberOfNonDashCharacters.setValue(0));
+      ifThen(ch !== '-', () => {
+        numberOfNonDashCharacters.increment();
+        if (numberOfNonDashCharacters.isEqualTo(this.textBreakLength)) {
+          linkLineBuilder.push('-');
+          numberOfNonDashCharacters.setValue(0);
+        }
+      });
     }
-    this.pushRestText(linkLines, rest);
-    this.reformattedLines.push(linkLines.join('-'));
+    linkLineBuilder.push(rest);
+    this.reformattedLines.push(linkLineBuilder.join(''));
   }
 
   private processNonLinkLine(): void {
     this.reformattedLines.push(this.line);
-  }
-
-  /**
-   * Minor Methods
-   */
-  private pushRestText(linkLines: string[], rest: string): void {
-    let lastIndex = linkLines.length - 1;
-    let lastLine = linkLines[lastIndex];
-    linkLines[lastIndex] = lastLine + rest;
   }
 
   /**
@@ -105,8 +105,9 @@ export class CardMarkdownReformatter {
     this.line = line;
   }
 
-  private reset(text: string): void {
+  private reset(text: string, textBreakLength: number): void {
     this.text = text;
+    this.textBreakLength = textBreakLength;
     this.lines = text.split('\n');
     this.reformattedLines = [];
   }

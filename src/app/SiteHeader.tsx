@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive';
 import { Container, Dropdown, Icon, Menu } from 'semantic-ui-react';
 import { SiteSectionGroupProps } from './SitePage';
 import { MobileHelper } from '../common/util/helper/MobileHelper';
@@ -6,18 +7,24 @@ import { ConditionalContent } from './ConditionalContent';
 import './index.css';
 import { ReactNode } from 'react';
 import { CenteredContainer } from './CenterContainer';
+import { BIG_SCREEN_QUERY, MEDIUM_SCREEN_QUERY } from '../common/util/mobile';
 
 /**
  * The header for the website
  */
 export const SiteHeader = (props: { sectionMap: any }): JSX.Element => {
-  const isBigScreen = MobileHelper.isBigScreen();
+  const isBigScreen = useMediaQuery(BIG_SCREEN_QUERY);
+  const isMediumScreen = useMediaQuery(MEDIUM_SCREEN_QUERY);
+  const isSmallScreen = !isBigScreen && !isMediumScreen;
   return (
     <>
       <ConditionalContent condition={isBigScreen}>
         <SiteBigHeader sectionMap={props.sectionMap} />
       </ConditionalContent>
-      <ConditionalContent condition={!isBigScreen}>
+      <ConditionalContent condition={isMediumScreen}>
+        <SiteMediumHeader sectionMap={props.sectionMap} />
+      </ConditionalContent>
+      <ConditionalContent condition={isSmallScreen}>
         <SiteSmallHeader sectionMap={props.sectionMap} />
       </ConditionalContent>
     </>
@@ -39,6 +46,27 @@ const SiteBigHeader = (props: { sectionMap: any }): JSX.Element => {
           <SiteHeaderProjectsDropdown sectionMap={props.sectionMap} />
           <SiteHeaderLinkedInIcon />
           <SiteHeaderGitHubIcon />
+        </Menu.Item>
+      </Menu>
+    </Container>
+  );
+};
+
+/**
+ * The header for the website on a medium screen
+ */
+const SiteMediumHeader = (props: { sectionMap: any }): JSX.Element => {
+  return (
+    <Container>
+      <Menu secondary>
+        <SiteHeaderHomeTitle />
+        <Menu.Item position="right">
+          <SiteHeaderAboutDropdown sectionMap={props.sectionMap} />
+          <SiteHeaderSkillsDropdown sectionMap={props.sectionMap} />
+          <SiteHeaderProjectsDropdown sectionMap={props.sectionMap} />
+          <div className="siteHeaderSmallTitleBar">
+            <SiteHeaderSmallBarsDropdown />
+          </div>
         </Menu.Item>
       </Menu>
     </Container>

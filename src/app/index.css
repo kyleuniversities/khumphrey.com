@@ -15,12 +15,18 @@
 }
 
 .reactMarkdown img {
-    max-width: 80vw;
+    max-width: 90vw;
 }
 
 .siteFooterGridColumnHeader {
     color: white;
     font-size: 15px;
+}
+
+.siteFooterListItemContainer {
+    @media only screen and (min-width: 620px) and (max-width: 920px) and (min-height: 800px)  {
+        padding-bottom: 0px;
+    } 
 }
 
 .siteFooterListItem {
@@ -33,7 +39,7 @@
     padding-right: 150px;
     padding-top: 50px;
     padding-bottom: 50px;
-    min-width: 100%;
+    min-width: 100vw;
     min-height: 15vh;
     text-align: left;
     background-color: black;
@@ -41,6 +47,10 @@
     @media only screen and (max-width: 600px) {
         padding-left: 10px;
         padding-right: 10px;
+    }  
+
+    @media only screen and (min-width: 620px) and (max-width: 920px) and (min-height: 800px)  {
+        min-height: 40vh;
     }  
 }
 
@@ -60,6 +70,11 @@
 
 .siteHeaderDropdownHeader {
     font-size: 20px;
+
+    @media only screen and (min-width: 620px) and (max-width: 920px)  {
+        padding-left: 0px;
+        padding-right: 0px;
+    }  
 }
 
 .siteHeaderDropdownItem {
@@ -79,6 +94,11 @@
     @media only screen and (max-width: 600px) {
         padding-top: 20px;
         padding-bottom: 0px;
+    }  
+
+    @media only screen and (min-width: 660px) and (max-width: 979px) {   
+        padding-left: 0px;
+        padding-right: 0px;
     }  
 }
 
