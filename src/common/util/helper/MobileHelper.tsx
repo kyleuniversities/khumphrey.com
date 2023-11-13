@@ -15,6 +15,13 @@ export class MobileHelper {
   }
 
   /**
+   * Gets the browser area
+   */
+  public static getBrowserArea(): number {
+    return MobileHelper.getBrowserWidth() * MobileHelper.getBrowserHeight();
+  }
+
+  /**
    * Gets the browser height
    */
   public static getBrowserHeight(): number {

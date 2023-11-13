@@ -1,11 +1,18 @@
 import { Card, Container, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import ReactMarkdown from 'react-markdown';
 import { fetchJson, fetchText } from '../util/fetch';
 import { MultiLineBreak } from '../../common/util/js/line';
 import './index.css';
 import { getResourceUrl } from '../util/resource';
+import { MarkdownHelper } from '../helper/MarkdownHelper';
+import { ifThen } from '../../common/util/conditional';
+import {
+  BIG_SCREEN_QUERY,
+  MEDIUM_SCREEN_QUERY,
+} from '../../common/util/mobile';
 
 /**
  * Constant for the loading card
@@ -22,10 +29,20 @@ export const ProjectCard = (props: { name: string }): JSX.Element => {
   const dataUrl = `${resourcePreText}/data.json`;
   const image = `${resourcePreText}/image.png`;
   const introUrl = `${resourcePreText}/intro.md`;
+  const isBigScreen = useMediaQuery(BIG_SCREEN_QUERY);
+  const isMediumScreen = useMediaQuery(MEDIUM_SCREEN_QUERY);
+  const isSmallScreen = !isBigScreen && !isMediumScreen;
   useEffect(() => {
-    fetchJson(dataUrl, setData);
-    fetchText(introUrl, setIntroText);
-  }, [dataUrl, introUrl]);
+    loadProjectCard({
+      dataUrl,
+      introUrl,
+      setData,
+      setIntroText,
+      isBigScreen,
+      isMediumScreen,
+      isSmallScreen,
+    });
+  }, [dataUrl, introUrl, isBigScreen, isMediumScreen, isSmallScreen]);
   return (
     <Card fluid>
       <ProjectCardContainer
@@ -87,4 +104,33 @@ const ProjectCardImageContainer = (props: { image: string }): JSX.Element => {
       <Image centered src={props.image} />
     </Container>
   );
+};
+
+/**
+ * Type for Project Card Loading function properties
+ */
+type LoadProjectCardProps = {
+  dataUrl: string;
+  introUrl: string;
+  setData: (res: any) => void;
+  setIntroText: (res: string) => void;
+  isBigScreen: boolean;
+  isMediumScreen: boolean;
+  isSmallScreen: boolean;
+};
+
+/**
+ * Loads the project card data
+ */
+const loadProjectCard = (props: LoadProjectCardProps) => {
+  fetchJson(props.dataUrl, props.setData);
+  fetchText(props.introUrl, (text) => {
+    ifThen(props.isBigScreen, () => props.setIntroText(text));
+    ifThen(props.isMediumScreen, () =>
+      props.setIntroText(MarkdownHelper.reformat(text, 50))
+    );
+    ifThen(props.isSmallScreen, () =>
+      props.setIntroText(MarkdownHelper.reformat(text, 26))
+    );
+  });
 };
