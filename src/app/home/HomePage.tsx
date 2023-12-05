@@ -5,7 +5,7 @@ import { HomePageIntroContainer } from './HomePageIntroContainer';
 import {
   HomePageProjectsContainer,
   HomePageWorksInProgressContainer,
-} from './HomePageProjectsContainer';
+} from './HomePageWorksContainer';
 import { HomePageReplayContainer } from './HomePageReplayContainer';
 import { HomePageTechnologiesContainer } from './HomePageTechnologiesContainer';
 import { MultiLineBreak } from '../../common/util/js/line';

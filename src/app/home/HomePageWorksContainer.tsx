@@ -8,7 +8,7 @@ import {
 import './index.css';
 import { getResourceUrl } from '../util/resource';
 
-type ProjectListContainerProps = AnimationSwitch & {
+type WorksContainerProps = AnimationSwitch & {
   listId: string;
   timeout: number;
 };
@@ -20,7 +20,7 @@ export const HomePageProjectsContainer = (
   props: AnimationSwitch
 ): JSX.Element => {
   return (
-    <HomePageProjectListContainer
+    <HomePageWorksContainer
       isAnimating={props.isAnimating}
       listId="projects"
       timeout={4250}
@@ -35,7 +35,7 @@ export const HomePageWorksInProgressContainer = (
   props: AnimationSwitch
 ): JSX.Element => {
   return (
-    <HomePageProjectListContainer
+    <HomePageWorksContainer
       isAnimating={props.isAnimating}
       listId="works-in-progress"
       timeout={6450}
@@ -44,11 +44,9 @@ export const HomePageWorksInProgressContainer = (
 };
 
 /**
- * Home Page Component for showing a list of projects
+ * Home Page Component for showing a list of works
  */
-const HomePageProjectListContainer = (
-  props: ProjectListContainerProps
-): JSX.Element => {
+const HomePageWorksContainer = (props: WorksContainerProps): JSX.Element => {
   const [title, setTitle] = useState('');
   const [items, setItems] = useState([]);
   const dataUrl = getResourceUrl(`resources/list/${props.listId}/data.json`);
