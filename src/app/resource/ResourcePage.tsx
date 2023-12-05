@@ -77,6 +77,13 @@ export const ProjectPage = (): JSX.Element => {
 };
 
 /**
+ * Page for displaying technology articles
+ */
+export const TechnologyPage = (): JSX.Element => {
+  return <ResourceTextPage dataToken="technology" />;
+};
+
+/**
  * Page that loads a resource
  */
 const ResourcePage = (props: { children: ReactNode }): JSX.Element => {

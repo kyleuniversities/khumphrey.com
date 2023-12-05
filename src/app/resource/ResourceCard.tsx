@@ -13,6 +13,7 @@ import {
   BIG_SCREEN_QUERY,
   MEDIUM_SCREEN_QUERY,
 } from '../../common/util/mobile';
+import { pluralize } from '../util/string';
 
 /**
  * Constant for the loading card
@@ -29,7 +30,7 @@ export const ProjectCard = (props: { name: string }): JSX.Element => {
 /**
  * Card for displaying introductory information about a resource
  */
-const ResourceCard = (props: {
+export const ResourceCard = (props: {
   dataToken: string;
   name: string;
 }): JSX.Element => {
@@ -80,7 +81,7 @@ const ResourceCardContainer = (props: {
 }): JSX.Element => {
   return (
     <Container fluid className="resourceCardContainer">
-      <Link to={`/${props.dataToken}s/${props.name}`}>
+      <Link to={`/${pluralize(props.dataToken)}/${props.name}`}>
         <ResourceCardTitle title={props.title} />
         <MultiLineBreak lines={2} />
         <ResourceCardImageContainer image={props.image} />

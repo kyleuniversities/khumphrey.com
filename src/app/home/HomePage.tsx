@@ -3,8 +3,9 @@ import { Container, Transition } from 'semantic-ui-react';
 import { SitePage } from '../SitePage';
 import { HomePageIntroContainer } from './HomePageIntroContainer';
 import {
+  HomePageAccomplishmentsContainer,
   HomePageProjectsContainer,
-  HomePageWorksInProgressContainer,
+  HomePageTechnologyArticlesContainer,
 } from './HomePageWorksContainer';
 import { HomePageReplayContainer } from './HomePageReplayContainer';
 import { HomePageTechnologiesContainer } from './HomePageTechnologiesContainer';
@@ -47,7 +48,7 @@ const HomePage = (props: { isDynamic: boolean }): JSX.Element => {
       <HomePageReplayContainer isDynamic={props.isDynamic} />
       <HomePageTechnologiesContainer isDynamic={props.isDynamic} />
       <HomePageProjectsContainer isAnimating={props.isDynamic} />
-      <HomePageWorksInProgressContainer isAnimating={props.isDynamic} />
+      <HomePageTechnologyArticlesContainer isAnimating={props.isDynamic} />
     </SitePage>
   );
 };

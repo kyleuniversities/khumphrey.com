@@ -6,6 +6,7 @@ import {
   ListPage,
   PdfPage,
   ProjectPage,
+  TechnologyPage,
 } from './app/resource/ResourcePage';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route index element={<DynamicHomePage />} />
         <Route path="/home" element={<StaticHomePage />} />
         <Route path="/projects/:id" element={<ProjectPage />} />
+        <Route path="/technologies/:id" element={<TechnologyPage />} />
         <Route path="/sections/info/:id" element={<InfoPage />} />
         <Route path="/sections/lists/:sectionId" element={<ListPage />} />
         <Route path="/sections/pdfs/:sectionId" element={<PdfPage />} />
