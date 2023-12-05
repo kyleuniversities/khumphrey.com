@@ -1,10 +1,12 @@
 import './App.css';
 import { DynamicHomePage, StaticHomePage } from './app/home/HomePage';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { ProjectPage } from './app/project/ProjectPage';
-import { InfoPage } from './app/info/InfoPage';
-import { PdfPage } from './app/pdf/PdfPage';
-import { ListPage } from './app/list/ListPage';
+import {
+  InfoPage,
+  ListPage,
+  PdfPage,
+  ProjectPage,
+} from './app/resource/ResourcePage';
 
 function App() {
   return (

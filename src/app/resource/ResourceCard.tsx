@@ -23,9 +23,21 @@ const LOADING_CARD = { title: 'Loading...', description: 'Loading...' };
  * Card for displaying introductory information about a project
  */
 export const ProjectCard = (props: { name: string }): JSX.Element => {
+  return <ResourceCard dataToken={'project'} name={props.name} />;
+};
+
+/**
+ * Card for displaying introductory information about a resource
+ */
+const ResourceCard = (props: {
+  dataToken: string;
+  name: string;
+}): JSX.Element => {
   const [data, setData] = useState(LOADING_CARD);
   const [introText, setIntroText] = useState('');
-  const resourcePreText = getResourceUrl(`resources/project/${props.name}`);
+  const resourcePreText = getResourceUrl(
+    `resources/${props.dataToken}/${props.name}`
+  );
   const dataUrl = `${resourcePreText}/data.json`;
   const image = `${resourcePreText}/image.png`;
   const introUrl = `${resourcePreText}/intro.md`;
@@ -33,7 +45,7 @@ export const ProjectCard = (props: { name: string }): JSX.Element => {
   const isMediumScreen = useMediaQuery(MEDIUM_SCREEN_QUERY);
   const isSmallScreen = !isBigScreen && !isMediumScreen;
   useEffect(() => {
-    loadProjectCard({
+    loadResourceCard({
       dataUrl,
       introUrl,
       setData,
@@ -45,8 +57,9 @@ export const ProjectCard = (props: { name: string }): JSX.Element => {
   }, [dataUrl, introUrl, isBigScreen, isMediumScreen, isSmallScreen]);
   return (
     <Card fluid>
-      <ProjectCardContainer
-        dataToken={props.name}
+      <ResourceCardContainer
+        dataToken={props.dataToken}
+        name={props.name}
         title={data.title}
         image={image}
         introText={introText}
@@ -56,49 +69,50 @@ export const ProjectCard = (props: { name: string }): JSX.Element => {
 };
 
 /**
- * Container for displaying project card data
+ * Container for displaying resource card data
  */
-const ProjectCardContainer = (props: {
+const ResourceCardContainer = (props: {
   dataToken: string;
+  name: string;
   title: string;
   image: string;
   introText: string;
 }): JSX.Element => {
   return (
-    <Container fluid className="projectCardContainer">
-      <Link to={`/projects/${props.dataToken}`}>
-        <ProjectCardTitle title={props.title} />
+    <Container fluid className="resourceCardContainer">
+      <Link to={`/${props.dataToken}s/${props.name}`}>
+        <ResourceCardTitle title={props.title} />
         <MultiLineBreak lines={2} />
-        <ProjectCardImageContainer image={props.image} />
+        <ResourceCardImageContainer image={props.image} />
       </Link>
       <MultiLineBreak lines={2} />
-      <ProjectCardMarkdown introText={props.introText} />
+      <ResourceCardMarkdown introText={props.introText} />
     </Container>
   );
 };
 
 /**
- * Span for project card markdown
+ * Span for resource card markdown
  */
-const ProjectCardMarkdown = (props: { introText: string }): JSX.Element => {
+const ResourceCardMarkdown = (props: { introText: string }): JSX.Element => {
   return (
-    <span className="projectCardMarkdown">
+    <span className="resourceCardMarkdown">
       <ReactMarkdown children={props.introText} />
     </span>
   );
 };
 
 /**
- * Span for project card title
+ * Span for resource card title
  */
-const ProjectCardTitle = (props: { title: string }): JSX.Element => {
-  return <span className="projectCardTitle">{props.title}</span>;
+const ResourceCardTitle = (props: { title: string }): JSX.Element => {
+  return <span className="resourceCardTitle">{props.title}</span>;
 };
 
 /**
- * Container for displaying project card image
+ * Container for displaying resource card image
  */
-const ProjectCardImageContainer = (props: { image: string }): JSX.Element => {
+const ResourceCardImageContainer = (props: { image: string }): JSX.Element => {
   return (
     <Container>
       <Image centered src={props.image} />
@@ -107,9 +121,9 @@ const ProjectCardImageContainer = (props: { image: string }): JSX.Element => {
 };
 
 /**
- * Type for Project Card Loading function properties
+ * Type for Resource Card Loading function properties
  */
-type LoadProjectCardProps = {
+type LoadResourceCardProps = {
   dataUrl: string;
   introUrl: string;
   setData: (res: any) => void;
@@ -120,9 +134,9 @@ type LoadProjectCardProps = {
 };
 
 /**
- * Loads the project card data
+ * Loads the resource card data
  */
-const loadProjectCard = (props: LoadProjectCardProps) => {
+const loadResourceCard = (props: LoadResourceCardProps) => {
   fetchJson(props.dataUrl, props.setData);
   fetchText(props.introUrl, (text) => {
     ifThen(props.isBigScreen, () => props.setIntroText(text));

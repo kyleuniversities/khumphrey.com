@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ProjectCard } from '../project/ProjectCard';
+import { ProjectCard } from '../resource/ResourceCard';
 import {
   AnimationSwitch,
   HomePageSectionContainer,
