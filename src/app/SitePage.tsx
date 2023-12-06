@@ -13,18 +13,18 @@ const SECTION_MAP = {
     'Curriculum Vitae',
     '/sections/pdfs/curriculum-vitae'
   ),
-  TECHNOLOGIES: SiteSection.newInstance(
-    'Technologies I Have Experience In',
+  TECHNOLOGY_OVERVIEW: SiteSection.newInstance(
+    'Technology Overview',
     '/sections/info/technologies'
   ),
+  TECHNOLOGY_PAGES: SiteSection.newInstance(
+    'Technology Pages',
+    '/sections/lists/technologies'
+  ),
+  PROJECTS: SiteSection.newInstance('Projects', '/sections/lists/projects'),
   ACCOMPLISHMENTS: SiteSection.newInstance(
     'Accomplishments',
     '/sections/lists/accomplishments'
-  ),
-  PROJECTS: SiteSection.newInstance('Projects', '/sections/lists/projects'),
-  WORKS_IN_PROGRESS: SiteSection.newInstance(
-    'Works In Progress',
-    '/sections/lists/works-in-progress'
   ),
 };
 

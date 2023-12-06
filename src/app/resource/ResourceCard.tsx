@@ -24,7 +24,7 @@ const LOADING_CARD = { title: 'Loading...', description: 'Loading...' };
  * Card for displaying introductory information about a project
  */
 export const ProjectCard = (props: { name: string }): JSX.Element => {
-  return <ResourceCard dataToken={'project'} name={props.name} />;
+  return <ResourceCard dataToken="project" name={props.name} />;
 };
 
 /**

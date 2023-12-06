@@ -14,7 +14,7 @@ import {
 } from '../../common/util/mobile';
 import { ifThen } from '../../common/util/conditional';
 import { MarkdownHelper } from '../helper/MarkdownHelper';
-import { ProjectCard } from './ResourceCard';
+import { ProjectCard, ResourceCard } from './ResourceCard';
 
 /**
  * Page for displaying pure markdown info articles
@@ -29,19 +29,23 @@ export const InfoPage = (): JSX.Element => {
 export const ListPage = (): JSX.Element => {
   const { sectionId } = useParams();
   const [listPageText, setListPageText] = useState('');
+  const [dataToken, setDataToken] = useState('');
   const [items, setItems] = useState([]);
   const resourcePretext = getResourceUrl(`resources/list/${sectionId}`);
   const listUrl = resourcePretext + `/pretext.md`;
   const dataUrl = resourcePretext + `/data.json`;
   useEffect(() => {
     fetchText(listUrl, setListPageText);
-    fetchJson(dataUrl, (res) => setItems(res.items));
+    fetchJson(dataUrl, (res) => {
+      setDataToken(res.dataToken);
+      setItems(res.items);
+    });
   }, [listUrl, dataUrl]);
   return (
     <ResourcePage>
       <ReactMarkdown children={listPageText} className="reactMarkdown" />
       {items.map((item) => {
-        return <ProjectCard name={item} />;
+        return <ResourceCard dataToken={dataToken} name={item} />;
       })}
     </ResourcePage>
   );

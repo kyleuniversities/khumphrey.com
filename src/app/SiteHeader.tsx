@@ -168,7 +168,7 @@ const SiteHeaderSkillsDropdown = (props: { sectionMap: any }): JSX.Element => {
     <SiteHeaderDropdown
       title="Skills"
       sectionMap={props.sectionMap}
-      sectionKeys={['TECHNOLOGIES', 'ACCOMPLISHMENTS']}
+      sectionKeys={['TECHNOLOGY_OVERVIEW', 'TECHNOLOGY_PAGES']}
     />
   );
 };
@@ -183,7 +183,7 @@ const SiteHeaderProjectsDropdown = (props: {
     <SiteHeaderDropdown
       title="Projects"
       sectionMap={props.sectionMap}
-      sectionKeys={['PROJECTS', 'WORKS_IN_PROGRESS']}
+      sectionKeys={['PROJECTS', 'ACCOMPLISHMENTS']}
     />
   );
 };

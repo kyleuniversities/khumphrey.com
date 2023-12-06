@@ -40,7 +40,7 @@ const SiteFooterGridSkillsColumn = (props: {
     <SiteFooterGridColumn
       title="Skills"
       sectionMap={props.sectionMap}
-      sectionKeys={['TECHNOLOGIES', 'ACCOMPLISHMENTS']}
+      sectionKeys={['TECHNOLOGY_OVERVIEW', 'TECHNOLOGY_PAGES']}
     />
   );
 };
@@ -55,7 +55,7 @@ const SiteFooterGridProjectColumn = (props: {
     <SiteFooterGridColumn
       title="Projects"
       sectionMap={props.sectionMap}
-      sectionKeys={['PROJECTS', 'WORKS_IN_PROGRESS']}
+      sectionKeys={['PROJECTS', 'ACCOMPLISHMENTS']}
     />
   );
 };
