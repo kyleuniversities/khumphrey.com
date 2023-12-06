@@ -3,7 +3,6 @@ import { Container, Transition } from 'semantic-ui-react';
 import { SitePage } from '../SitePage';
 import { HomePageIntroContainer } from './HomePageIntroContainer';
 import {
-  HomePageAccomplishmentsContainer,
   HomePageProjectsContainer,
   HomePageTechnologyArticlesContainer,
 } from './HomePageWorksContainer';

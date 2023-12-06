@@ -14,7 +14,7 @@ import {
 } from '../../common/util/mobile';
 import { ifThen } from '../../common/util/conditional';
 import { MarkdownHelper } from '../helper/MarkdownHelper';
-import { ProjectCard, ResourceCard } from './ResourceCard';
+import { ResourceCard } from './ResourceCard';
 
 /**
  * Page for displaying pure markdown info articles
