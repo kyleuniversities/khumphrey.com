@@ -21,6 +21,7 @@ const SECTION_MAP = {
     'Technology Pages',
     '/sections/lists/technologies'
   ),
+  AI_SKILLS: SiteSection.newInstance('AI Skills', '/sections/info/ai'),
   PROJECTS: SiteSection.newInstance('Projects', '/sections/lists/projects'),
   ACCOMPLISHMENTS: SiteSection.newInstance(
     'Accomplishments',
