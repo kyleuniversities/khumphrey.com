@@ -2,6 +2,7 @@ import './App.css';
 import { DynamicHomePage, StaticHomePage } from './app/home/HomePage';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import {
+  AlgorithmPage,
   InfoPage,
   ListPage,
   PdfPage,
@@ -17,6 +18,7 @@ function App() {
         <Route path="/home" element={<StaticHomePage />} />
         <Route path="/projects/:id" element={<ProjectPage />} />
         <Route path="/technologies/:id" element={<TechnologyPage />} />
+        <Route path="/algorithms/:id" element={<AlgorithmPage />} />
         <Route path="/sections/info/:id" element={<InfoPage />} />
         <Route path="/sections/lists/:sectionId" element={<ListPage />} />
         <Route path="/sections/pdfs/:sectionId" element={<PdfPage />} />

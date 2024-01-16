@@ -81,6 +81,13 @@ export const ProjectPage = (): JSX.Element => {
 };
 
 /**
+ * Page for displaying algorithm articles
+ */
+export const AlgorithmPage = (): JSX.Element => {
+  return <ResourceTextPage dataToken="algorithm" />;
+};
+
+/**
  * Page for displaying technology articles
  */
 export const TechnologyPage = (): JSX.Element => {
