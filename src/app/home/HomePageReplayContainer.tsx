@@ -49,7 +49,7 @@ const ReplayButton = (props: { navigate: NavigateFunction }): JSX.Element => {
       color="blue"
       content="Replay"
       onClick={() => {
-        props.navigate('/');
+        props.navigate('/master');
         window.scrollTo(0, 0);
         window.location.reload();
       }}

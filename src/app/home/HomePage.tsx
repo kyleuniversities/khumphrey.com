@@ -10,6 +10,14 @@ import { HomePageReplayContainer } from './HomePageReplayContainer';
 import { HomePageTechnologiesContainer } from './HomePageTechnologiesContainer';
 import { MultiLineBreak } from '../../common/util/js/line';
 import './index.css';
+import { Link } from 'react-router-dom';
+
+/**
+ * Home Page with closed message
+ */
+export const ClosedHomePage = (): JSX.Element => {
+  return <ClosedInactiveHomePage />;
+};
 
 /**
  * Home Page component including slide-in animation
@@ -103,6 +111,52 @@ export const HomePageSectionContainer = (props: {
       <MultiLineBreak lines={props.innerLines} />
       {props.children}
       <MultiLineBreak lines={props.postLines} />
+    </div>
+  );
+};
+
+const ClosedInactiveHomePage = (): JSX.Element => {
+  return (
+    <div className="closedContainer">
+      <h1>Kyle Universities / QuizTube</h1>
+      <p>
+        Sorry, I am no longer in the job market and have closed this website to
+        reduce cloud platform costs. If you would still like to reach out,
+        please email kyleuniversities@gmail.com. Thank you!
+      </p>
+    </div>
+  );
+};
+
+const ClosedActiveHomePage = (): JSX.Element => {
+  return (
+    <div className="closedContainer">
+      <h1>Kyle Universities / QuizTube</h1>
+      <p>
+        Sorry, I am no longer in the job market and have closed this website to
+        reduce cloud platform costs. However, a portfolio of my projects and
+        credentials is still visible online.
+      </p>
+      <div className="sitesContainer">
+        <ul>
+          <li>
+            Portfolio Website:{' '}
+            <Link to="/main">https://kyleuniversities.com/main</Link>
+          </li>
+          <MultiLineBreak lines={1} />
+          <li>
+            QuizTube:{' '}
+            <Link to="/projects/quiztube">
+              https://kyleuniversities.com/projects/quiztube
+            </Link>
+          </li>
+        </ul>
+      </div>
+      <MultiLineBreak lines={1} />
+      <p>
+        If you would still like to reach out, please email
+        kyleuniversities@gmail.com. Thank you!
+      </p>
     </div>
   );
 };

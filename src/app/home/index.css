@@ -1,3 +1,9 @@
+.closedContainer {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
 .homeSection {
     text-align: left;
     margin-left: 100px;
@@ -47,4 +53,8 @@
 
 .homeTechnologyIconGridText {
     font-size: 27px;
+}
+
+.sitesContainer {
+    padding-top: 3px;
 }

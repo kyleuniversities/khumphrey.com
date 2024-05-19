@@ -54,8 +54,8 @@ export const ListPage = (): JSX.Element => {
 /**
  * Page for displaying pure markdown note articles
  */
-export const NotePage = (): JSX.Element => {
-  return <ResourceTextPage dataToken="note" />;
+export const TechnologyNotePage = (): JSX.Element => {
+  return <ResourceTextPage dataToken="technology-note" />;
 };
 
 /**
