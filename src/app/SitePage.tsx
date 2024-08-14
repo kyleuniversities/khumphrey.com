@@ -1,31 +1,34 @@
-import { ReactNode } from 'react';
-import { SiteHeader } from './SiteHeader';
-import { SiteSection } from './SiteSection';
-import { SiteFooter } from './SiteFooter';
+import { ReactNode } from "react";
+import { SiteHeader } from "./SiteHeader";
+import { SiteSection } from "./SiteSection";
+import { SiteFooter } from "./SiteFooter";
 
 /**
  * Structure for storing site section data
  */
 const SECTION_MAP = {
-  ABOUT_ME: SiteSection.newInstance('About Me', '/sections/info/about-me'),
-  RESUME: SiteSection.newInstance('Resume', '/sections/pdfs/resume'),
+  ABOUT_ME: SiteSection.newInstance("About Me", "/sections/info/about-me"),
+  RESUME: SiteSection.newInstance(
+    "Contact Info",
+    "/sections/info/contact-info",
+  ),
   CURRICULUM_VITAE: SiteSection.newInstance(
-    'Curriculum Vitae',
-    '/sections/pdfs/curriculum-vitae'
+    "Passions and Interests",
+    "/sections/info/passions-and-interests",
   ),
   TECHNOLOGY_OVERVIEW: SiteSection.newInstance(
-    'Technology Overview',
-    '/sections/info/technologies'
+    "Technology Overview",
+    "/sections/info/technologies",
   ),
   TECHNOLOGY_PAGES: SiteSection.newInstance(
-    'Technology Pages',
-    '/sections/lists/technologies'
+    "Technology Pages",
+    "/sections/lists/technologies",
   ),
-  AI_SKILLS: SiteSection.newInstance('AI Skills', '/sections/info/ai'),
-  PROJECTS: SiteSection.newInstance('Projects', '/sections/lists/projects'),
+  AI_SKILLS: SiteSection.newInstance("AI Skills", "/sections/info/ai"),
+  PROJECTS: SiteSection.newInstance("Projects", "/sections/lists/projects"),
   ACCOMPLISHMENTS: SiteSection.newInstance(
-    'Accomplishments',
-    '/sections/lists/accomplishments'
+    "Accomplishments",
+    "/sections/lists/accomplishments",
   ),
 };
 

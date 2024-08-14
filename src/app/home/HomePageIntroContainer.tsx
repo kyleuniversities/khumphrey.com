@@ -1,13 +1,13 @@
-import { Container, Image } from 'semantic-ui-react';
+import { Container, Image } from "semantic-ui-react";
 import {
   AnimationSwitch,
   HomePageSectionContainer,
   HomePageTextSectionTextContainer,
   HomePageTransitionContainer,
   STATIC_ANIMATION,
-} from './HomePage';
-import './index.css';
-import { getQuickResourceUrl } from '../util/resource';
+} from "./HomePage";
+import "./index.css";
+import { getQuickResourceUrl } from "../util/resource";
 
 /**
  * Home Page component for introductory content
@@ -25,11 +25,11 @@ export const HomePageIntroContainer = (props: AnimationSwitch): JSX.Element => {
  * Container for the welcome image
  */
 const HomePageIntroWelcomeContainer = (props: AnimationSwitch): JSX.Element => {
-  const welcome = getQuickResourceUrl('resources/welcome.png');
+  const welcome = getQuickResourceUrl("resources/welcome.png");
   return (
     <HomePageTransitionContainer
       className="homeWelcomeTransitionSection"
-      animation={props.isAnimating ? 'slide left' : STATIC_ANIMATION}
+      animation={props.isAnimating ? "slide left" : STATIC_ANIMATION}
       isAnimating={props.isAnimating}
       timeout={500}
     >
@@ -51,10 +51,9 @@ const HomePageIntroAboutContainer = (props: AnimationSwitch): JSX.Element => {
     >
       <HomePageSectionContainer title="About Me" innerLines={2} postLines={10}>
         <HomePageTextSectionTextContainer>
-          &emsp;&emsp;Hi, my name is Kyle Humphrey (@kyleuniversities) and
-          welcome to my website! I'm a hard worker and fast learner who loves to
-          solve complex problems. I have significant experience in Java,
-          ReactJS, and Python.
+          &emsp;&emsp;Hi, my name is Kyle Humphrey and welcome to my website!
+          I'm a hard worker and fast learner who loves to solve complex
+          problems. I have significant experience in Java, ReactJS, and Python.
         </HomePageTextSectionTextContainer>
       </HomePageSectionContainer>
     </HomePageTransitionContainer>

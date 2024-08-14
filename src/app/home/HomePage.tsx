@@ -118,7 +118,7 @@ export const HomePageSectionContainer = (props: {
 const ClosedInactiveHomePage = (): JSX.Element => {
   return (
     <div className="closedContainer">
-      <h1>Kyle Universities / QuizTube</h1>
+      <h1>Kyle Humphrey / QuizTube</h1>
       <p>
         Sorry, I am no longer in the job market and have closed this website to
         reduce cloud platform costs. If you would still like to reach out,
@@ -131,7 +131,7 @@ const ClosedInactiveHomePage = (): JSX.Element => {
 const ClosedActiveHomePage = (): JSX.Element => {
   return (
     <div className="closedContainer">
-      <h1>Kyle Universities / QuizTube</h1>
+      <h1>Kyle Humphrey / QuizTube</h1>
       <p>
         Sorry, I am no longer in the job market and have closed this website to
         reduce cloud platform costs. However, a portfolio of my projects and

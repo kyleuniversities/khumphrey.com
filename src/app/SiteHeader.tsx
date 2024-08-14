@@ -1,12 +1,12 @@
-import { Link, useNavigate } from 'react-router-dom';
-import { useMediaQuery } from 'react-responsive';
-import { Container, Dropdown, Icon, Menu } from 'semantic-ui-react';
-import { SiteSectionGroupProps } from './SitePage';
-import { ConditionalContent } from './ConditionalContent';
-import './index.css';
-import { ReactNode } from 'react';
-import { CenteredContainer } from './CenterContainer';
-import { BIG_SCREEN_QUERY, MEDIUM_SCREEN_QUERY } from '../common/util/mobile';
+import { Link, useNavigate } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
+import { Container, Dropdown, Icon, Menu } from "semantic-ui-react";
+import { SiteSectionGroupProps } from "./SitePage";
+import { ConditionalContent } from "./ConditionalContent";
+import "./index.css";
+import { ReactNode } from "react";
+import { CenteredContainer } from "./CenterContainer";
+import { BIG_SCREEN_QUERY, MEDIUM_SCREEN_QUERY } from "../common/util/mobile";
 
 /**
  * The header for the website
@@ -141,9 +141,7 @@ const SiteHeaderHomeIcon = (): JSX.Element => {
  */
 const SiteHeaderHomeTitle = (): JSX.Element => {
   return (
-    <SiteHeaderHomeButtonMenuItem>
-      Kyle Universities
-    </SiteHeaderHomeButtonMenuItem>
+    <SiteHeaderHomeButtonMenuItem>Kyle Humphrey</SiteHeaderHomeButtonMenuItem>
   );
 };
 
@@ -155,7 +153,7 @@ const SiteHeaderAboutDropdown = (props: { sectionMap: any }): JSX.Element => {
     <SiteHeaderDropdown
       title="About"
       sectionMap={props.sectionMap}
-      sectionKeys={['ABOUT_ME', 'RESUME', 'CURRICULUM_VITAE']}
+      sectionKeys={["ABOUT_ME", "RESUME", "CURRICULUM_VITAE"]}
     />
   );
 };
@@ -168,7 +166,7 @@ const SiteHeaderSkillsDropdown = (props: { sectionMap: any }): JSX.Element => {
     <SiteHeaderDropdown
       title="Skills"
       sectionMap={props.sectionMap}
-      sectionKeys={['TECHNOLOGY_OVERVIEW', 'TECHNOLOGY_PAGES', 'AI_SKILLS']}
+      sectionKeys={["TECHNOLOGY_OVERVIEW", "TECHNOLOGY_PAGES", "AI_SKILLS"]}
     />
   );
 };
@@ -183,7 +181,7 @@ const SiteHeaderProjectsDropdown = (props: {
     <SiteHeaderDropdown
       title="Projects"
       sectionMap={props.sectionMap}
-      sectionKeys={['PROJECTS', 'ACCOMPLISHMENTS']}
+      sectionKeys={["PROJECTS", "ACCOMPLISHMENTS"]}
     />
   );
 };
@@ -274,7 +272,7 @@ const SiteHeaderHomeButtonMenuItem = (props: {
       <span
         className="siteHeaderHomeButton"
         onClick={() => {
-          navigate('/home');
+          navigate("/home");
           window.location.reload();
         }}
       >
